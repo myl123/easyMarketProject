@@ -9,8 +9,8 @@ class Footer extends Component {
             <ol className="footer">
                 {
 					router.map((item,index)=>{
-						return item.name&&<li>
-						   <NavLink to={item.path}>
+						return item.name&&<li key={index}>
+						   <NavLink to={item.path} key={index}>
 						       <span><Icon type={item.icon} className="iconStyle"/></span>
 							   <span className="foot">{item.name}</span>
 						   </NavLink>

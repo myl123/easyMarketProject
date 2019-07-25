@@ -6,6 +6,7 @@ import '../sass/style.scss';
 @observer
 class Home extends React.Component{
 	render(){
+		// console.log(this.props)
 		return(
 		   <><Route/></>
 		)
