@@ -6,15 +6,15 @@ class Footer extends Component {
     render() {
         return (
             <ol className="footer">
-                {
-					router.map((item,index)=>{
-						return <li>
-						   <NavLink to={item.path}>
-						       <span><Icon type={item.icon}/></span>
-							   <span>{item.name}</span>
-						   </NavLink>
-						</li>
-					})
+				 {
+						router.map((item,index)=>{
+							 return item.name&&<li key={index}>
+								 <NavLink to={item.path}>
+										 <span><Icon type={item.icon}/></span>
+									 <span>{item.name}</span>
+								 </NavLink>
+							</li>
+						})
 				}
             </ol>
         )

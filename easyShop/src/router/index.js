@@ -20,7 +20,7 @@ class Index extends Component {
 							return item.redirect&&<Redirect from={item.redirect} to={item.path} key={index}></Redirect>
 						})
 					}
-                </Switch>
+				</Switch>
             </Router>
         )
     }
