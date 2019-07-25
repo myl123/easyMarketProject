@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import Footer from '../component/footer';
-import '../sass/fication.scss'
+// import '../sass/style.scss'
 class Fication extends Component {
     render() {
         return (
-           <div className="wrap">
-           	<div className="searchWrap">
-						   <div className="searchInput">
-							     
-							 </div>
-						</div>
-           	<Footer/>
-           </div>
+            <div className="wrap">
+            <div className="header">分类</div>
+            <Footer/>
+        </div>
         )
     }
 }

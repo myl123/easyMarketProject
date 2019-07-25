@@ -4,6 +4,10 @@ import Loadable from "react-loadable";
 function Loading() {
   return <div>loading..</div>;
 }
+const Login=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/login/login")
+});
 const Home = Loadable({
   loading: Loading,
   loader: () => import("../viewser/home")
@@ -16,7 +20,7 @@ const Fication = Loadable({
   loading: Loading,
   loader: () => import("../viewser/fication")
 });
-const Shop = Loadable({
+const Shop = Loadable({ 
     loading: Loading,
     loader: () => import("../viewser/shop")
   });
@@ -25,6 +29,10 @@ const Shop = Loadable({
     loader: () => import("../viewser/my")
   });
 export default [
+  {
+    path: "/login",
+    component: Login
+  },
   {
     path: "/home",
     component: Home,
@@ -50,8 +58,5 @@ export default [
     component: My,
     name: "我的",
     icon: "user-add"
-  },{
-    redirect: "/",
-    path: "/home"
   }
 ];
