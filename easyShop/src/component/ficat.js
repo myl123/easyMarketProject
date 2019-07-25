@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import BScroll from 'better-scroll';
  class Ficat extends Component {
 	 render() {
 		let {fication,currentId,id,goods}=this.props
@@ -6,8 +7,7 @@ import React, { Component } from 'react'
         return (
 			<>
 			   <span>
-			     {
-						 <>
+			     { <>
 						 {/*渲染图片和下面标题*/}
 						    <img src={currentId.banner_url}/>
 						    <em>{currentId.front_name}</em>

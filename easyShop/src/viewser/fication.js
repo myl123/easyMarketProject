@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 import Footer from '../component/footer';
 import {inject, observer} from 'mobx-react';
+import BScroll from 'better-scroll';
 import '../sass/fication.scss';
 import router from '../router/router';
 import Ficat from '../component/ficat';
@@ -28,20 +29,18 @@ class Fication extends Component {
 									</div>
 									<div className="tabPageContent">
 									{/*渲染左边数据*/}
-											<ul className="tabsWrap">
+											<ul className="tabsWrap" ref="tabsWrap">
 											  {
 													this.props.fication&&this.props.fication.data.map(item=>{
 														return <li key={item.id} onClick={()=>{
-															
-                              this.props.fication.current(item.id);{/*点击的时候请求接口把id传过去*/}
-															target=this.props.fication.data.map((ite)=>{
+															this.props.fication.current(item.id);{/*点击的时候请求接口把id传过去*/}
+															target=this.props.fication.data.map((ite)=>{//点击左边右边数据发生改变
 																  return this.tail(ite,item,goods)
 															})
-															console.log(target)
 														}}>{item.name}</li>
 													})
 												}
-												<li></li>
+												<li ref="li"></li>
 											</ul>
 											<div className="categogContet">
 											   <Ficat fication={this.props.fication.data} currentId={this.props.fication.currId} goods={goods}/>
@@ -53,7 +52,7 @@ class Fication extends Component {
 				)
     }
 		componentDidMount(){
-			this.props.fication.getData()
+			this.props.fication.getData();
 		}
 		tail(ite,item,goods){
 			 if(ite.id===item.id){
