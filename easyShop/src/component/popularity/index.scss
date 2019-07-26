@@ -1,0 +1,27 @@
+.popularity-top{
+    width:100%;
+    height:6rem;
+    .popularity-content{
+        width:100%;
+        height:2rem;
+        margin-top:.4rem;
+        display: flex;
+        .popularity-left{
+            flex:3;
+            span{
+                img{
+                    width:2rem; 
+                    height:2rem;
+                    margin-left: .5rem;
+                }
+            }
+        }
+        .popularity-right{
+            flex:7;
+            p{
+                border:none;
+            }
+        
+        }
+    }
+}

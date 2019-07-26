@@ -1,5 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
-import React, { Component } from "react";
+import React from "react";
 import Loadable from "react-loadable";
 function Loading() {
   return <div>loading..</div>;
@@ -32,6 +31,14 @@ const Shop = Loadable({
     loading: Loading,
     loader: () => import("../viewser/my")
   });
+const BrandDetail=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/brandDetail")
+});
+const TopicDetail=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/topicDetail")
+});
 export default [
   {
     path: "/login",
@@ -45,32 +52,37 @@ export default [
     icon: "bank"
   },
   {
+    // name: "专题详情",
+    path: "/topicDetail/:id",
+    component: TopicDetail
+  },
+  {
+    // name: '制造商详情',
+    path: '/brandDetail/:id',
+    component: BrandDetail
+  },
+  {
     path: '/categorys/:id',
     component: Categorys,
-    name: '分类商品',
   },{
     path: "/special",
     component: Special,
     name: "专题",
-    isTab: true,
     icon: "switcher"
   },{
     path: "/fication",
     component: Fication,
     name: "分类",
-    isTab: true,
     icon: "carry-out"
   },{
     path: "/shop",
     component: Shop,
     name: "购物车",
-    isTab: true,
     icon: "shopping-cart"
   },{
     path: "/my",
     component: My,
     name: "我的",
-    isTab: true,
     icon: "user-add"
   }
 ];
