@@ -29,9 +29,16 @@ export function search(){
   })
 }
 //模糊查询
-export function search(parmas){
+export function keyword(parmas){
   return request({
-      url:'/search/helper',
+      url:`/search/helper?keyword=${parmas}`,
+      method:"GET",
+  })
+}
+//分类下面的内容
+export function category(parmas){
+  return request({
+      url:`/goods/category?id=${parmas}`,
       method:"GET",
   })
 }

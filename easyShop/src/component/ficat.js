@@ -25,10 +25,9 @@ import BScroll from 'better-scroll';
 									this.goodFication(goods,ficat)
 								}
 								{
-									
 									currentId.subCategoryList&&currentId.subCategoryList.map((item,index)=>{
 										return <li onClick={()=>{
-											  console.log(item.id)
+											 this.props.fication.goodsCat(item.id)
 											}}>
 												<span><img src={item.wap_banner_url}/></span>
 												<span>{item.name}</span>

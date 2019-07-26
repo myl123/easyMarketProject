@@ -14,7 +14,6 @@ class GoodsSearch extends Component {
 	}
     render() {
 			let {data,localData,valCont}=this.state;
-			
         return (
             <div className="noTabPageContent">
             	<ul className="searchInputWrap">
@@ -26,6 +25,8 @@ class GoodsSearch extends Component {
 					     <Icon type="search"/>
 							 {/*获取到value值之后储存起来进行渲染*/}
 							 <input type="text" placeholder="520元礼包抢先领" onBlur={(e)=>{
+								 this.props.fication.keywordVal(e.target.value)//模糊搜索//暂时还没做
+                  console.log(this.props)
 								  this.value(e.target.value,data)
 							 }} ref="input" onKeyup="this.value=this.value.replace(/^\s+|\s+$/g,'')"/>
 					</li>
@@ -52,6 +53,7 @@ class GoodsSearch extends Component {
 				   </div>
 				   <div className="searchItemwrap">
 				      <p className="title">热门搜索</p>
+							{/*热门搜索*/}
 					  <div className="listWrap">
 						   {
 								 this.props.fication.searchs.hotKeywordList&&this.props.fication.searchs.hotKeywordList.map((item,index)=>{
@@ -69,7 +71,6 @@ class GoodsSearch extends Component {
 			 let net=JSON.parse(localStorage.getItem('set'))||[];
 			 net.push(val)
 			 localStorage.setItem('set',JSON.stringify(net))
-			
 		}
 		//历史纪录 如果清楚本地储存那么为空表情否则为渲染的数据
 		tail(getItems){
@@ -82,7 +83,8 @@ class GoodsSearch extends Component {
 			 }
 		}
 		componentDidMount(){
-			this.props.fication.sear()
+			this.props.fication.sear()//热门搜索
+			
 		}
 }
 export default (withRouter(GoodsSearch))
