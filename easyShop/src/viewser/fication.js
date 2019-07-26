@@ -43,7 +43,7 @@ class Fication extends Component {
 												<li ref="li"></li>
 											</ul>
 											<div className="categogContet">
-											   <Ficat fication={this.props.fication.data} currentId={this.props.fication.currId} goods={goods}/>
+											   <Ficat ficat={this.props.fication.data} currentId={this.props.fication.currId} goods={goods}/>
 											</div>
 									</div>
 								</div>

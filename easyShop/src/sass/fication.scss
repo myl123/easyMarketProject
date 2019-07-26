@@ -57,7 +57,7 @@
 		.categogContet{
 			margin-top: .84rem;
 			margin-left: 2rem;
-			overflow: hidden;
+			overflow-y: auto;
 			display: flex;
 			flex-direction:column;
 			>span{

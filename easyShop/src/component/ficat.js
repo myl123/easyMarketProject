@@ -1,36 +1,47 @@
 import React, { Component } from 'react';
+import {inject, observer} from 'mobx-react';
 import BScroll from 'better-scroll';
+@inject('fication')
+@observer
  class Ficat extends Component {
+	 
 	 render() {
-		let {fication,currentId,id,goods}=this.props
-    console.log(fication)
+		let {ficat,currentId,id,goods}=this.props;
+		console.log(this.props)
         return (
 					<>
-						 <span>
+						 <span key={currentId.id}>
 						 {/*渲染图片和下面标题*/}
-						 {
-							 console.log(currentId.banner_url)
-						 }
-							 { <>
+						  { <>
 								    <img src={currentId.banner_url}/>
 										<em>{currentId.front_name}</em>
 								 </>
 							 }
 						 </span>
 						 {/* 分类*/}
-						 {this.tail(fication,currentId)}
+						 {this.tail(ficat,currentId)}
 						 <ol className="subCategory">
 								{
-									this.goodFication(goods,fication)
+									this.goodFication(goods,ficat)
+								}
+								{
+									
+									currentId.subCategoryList&&currentId.subCategoryList.map((item,index)=>{
+										return <li onClick={()=>{
+											  console.log(item.id)
+											}}>
+												<span><img src={item.wap_banner_url}/></span>
+												<span>{item.name}</span>
+										</li>
+									})
 								}
 						 </ol>
 					</>
         )
     }
 		//分类
-		tail(fication,currentId){
-				return fication.map((item,index)=>{
-					console.log(item)
+		tail(ficat,currentId){
+				return ficat.map((item,index)=>{
 					 if(item.id===1005000){
 							 if(currentId.name){
 								 return <p key={index}>-  {currentId.name}分类 -</p>
@@ -41,19 +52,14 @@ import BScroll from 'better-scroll';
 				})
 		}
 	 //分类下面的
-	 goodFication(goods,fication){
-		  if(goods){
-				 return goods.map((item,index)=>{
-						return <li>
-								<span><img src={item.list_pic_url}/></span>
-								<span>{item.name}</span>
-						</li>
-					})
-			}else{
-				 return fication.map((item,index)=>{
+	 goodFication(goods,ficat){
+		  if(!goods){
+				 return ficat.map((item,index)=>{
 				 	if(item.id===1005000){
 				 			return item.goodsList.map((ite,ind)=>{
-								 return <li>
+								 return <li  onClick={()=>{
+
+						  }}>
 								 		<span><img src={ite.list_pic_url}/></span>
 								 		<span>{item.name}</span>
 								 </li>
@@ -62,6 +68,8 @@ import BScroll from 'better-scroll';
 				 })
 			}
 	 }
-	
+	 componentDidMount(){
+		 // this.props.fication.detas('111')
+	 }
 }
 export default Ficat

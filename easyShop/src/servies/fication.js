@@ -14,3 +14,24 @@ export function ficaImg(params){
       method:"GET",
   })
 }
+//商品详情
+export function details(params){
+  return request({
+      url:`/goods/detail?id=${params}`,
+      method:"GET",
+  })
+}
+//热搜
+export function search(){
+  return request({
+      url:'/search/index',
+      method:"GET",
+  })
+}
+//模糊查询
+export function search(parmas){
+  return request({
+      url:'/search/helper',
+      method:"GET",
+  })
+}
