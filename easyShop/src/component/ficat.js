@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
 import BScroll from 'better-scroll';
+import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 @inject('fication')
 @observer
  class Ficat extends Component {
@@ -27,7 +28,7 @@ import BScroll from 'better-scroll';
 								{
 									currentId.subCategoryList&&currentId.subCategoryList.map((item,index)=>{
 										return <li onClick={()=>{
-											 this.props.fication.goodsCat(item.id)
+											  console.log(this.props)
 											}}>
 												<span><img src={item.wap_banner_url}/></span>
 												<span>{item.name}</span>
@@ -67,8 +68,6 @@ import BScroll from 'better-scroll';
 				 })
 			}
 	 }
-	 componentDidMount(){
-		 // this.props.fication.detas('111')
-	 }
+	 
 }
-export default Ficat
+export default (withRouter(Ficat))

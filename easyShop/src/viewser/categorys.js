@@ -4,6 +4,7 @@ class Categorys extends Component {
     render() {
         return (
             <div className="wrap">
+			{/*this.props.fication.goodsCat(item.id)*/}
             	内容
             </div>
         )
