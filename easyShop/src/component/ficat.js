@@ -5,10 +5,8 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 @inject('fication')
 @observer
  class Ficat extends Component {
-	 
 	 render() {
 		let {ficat,currentId,id,goods}=this.props;
-		console.log(this.props)
         return (
 					<>
 						 <span key={currentId.id}>
@@ -28,7 +26,7 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 								{
 									currentId.subCategoryList&&currentId.subCategoryList.map((item,index)=>{
 										return <li onClick={()=>{
-											  console.log(this.props)
+											   this.props.history.push(`/categorys/${item.id}`)
 											}}>
 												<span><img src={item.wap_banner_url}/></span>
 												<span>{item.name}</span>
