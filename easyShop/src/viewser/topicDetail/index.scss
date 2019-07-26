@@ -1,0 +1,33 @@
+.topicDetail{
+    width:100%;
+    height:100%;
+    font-size: .3rem;
+}
+.topic{
+    width:100%;
+    height:8rem;
+    background: #fff;
+    p{
+        height:1rem;
+        line-height: 1rem;
+        display: flex;
+        border-bottom:.01rem solid #ccc;
+        span{
+            margin-left: .2rem;
+            flex:2;
+        }
+        b{
+            flex:8;
+            margin-left: .08rem;
+        }
+    }
+    
+}
+.topicImg{
+    width:100%;
+    height:auto;
+    img{
+        width:100%;
+    
+    }
+}

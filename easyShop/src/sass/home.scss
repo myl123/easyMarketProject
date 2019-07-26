@@ -1,0 +1,91 @@
+.swiper{
+    width:100%;
+    height:3.4rem;
+    // background: red;
+}
+.swiper-wrapper{
+    width:100%;
+    height:3.4rem;
+}
+.swiper-slide img{
+    width:100%;
+    height:100%;
+}
+.swiper-pagination{
+    top:65%;
+}
+.content{
+    width:100%;
+    height:1.2rem;
+    margin-top: .5rem;
+    // background: orange;
+}
+.brands{
+    height:5rem;
+    // background: orange;
+    margin-top: .1rem;
+    p{
+        height:.7rem;
+        text-align: center;
+        line-height: .7rem;
+        font-size: .3rem;
+        border-bottom:.01rem solid #ccc;
+    }
+    .brandManu{
+        width:100%;
+        height:4rem;
+        // background: yellow;
+        .brandMenu{
+            width:50%;
+            height:2rem;
+            float: left;
+            // background: red;
+            
+            img{
+                width:100%; 
+                height:100%;
+                // position: absolute; 
+            }
+        }
+    }
+    
+}
+.newProduct{
+    height:8.5rem;
+    // backsground: orange;
+    margin-top: .1rem;
+    p{
+        height:.7rem;
+        text-align: center;
+        line-height: .7rem;
+        font-size: .3rem;
+        border-bottom:.01rem solid #ccc;
+    }
+
+   
+}
+.popularity{
+    height:8rem;
+    // background: orange;
+    margin-top: .1rem;
+    p{
+        height:.7rem;
+        text-align: center;
+        line-height: .7rem;
+        font-size: .3rem;
+        border-bottom:.01rem solid #ccc;
+    }  
+}
+
+.special{
+    height:8rem;
+    // background: orange;
+    margin-top: .1rem;
+    p{
+        height:.7rem;
+        text-align: center;
+        line-height: .7rem;
+        font-size: .3rem;
+        border-bottom:.01rem solid #ccc;
+    }  
+}
