@@ -10,15 +10,15 @@
 
 ### 图片预览
 
-> 
+> ![Image text](https://github.com/yguo18/CircleFollowButton/raw/master/Assets/Image/xiaoguotu.png)
 
 ------
 
 ##目录简介
 
-- [ ] 首页
-- [x] 专题
+- [x] 首页
+- [ ] 专题
 - [x] 分类
 - [ ] 购物车
-- [x] 我的
+- [ ] 我的
 
