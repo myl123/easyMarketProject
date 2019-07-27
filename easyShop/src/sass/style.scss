@@ -8,10 +8,7 @@
 html,body,#root,.wrap{
 	width:100%;
 	height:100%;
-<<<<<<< HEAD
-=======
 	overflow: hidden;
->>>>>>> dev
 }
 .wrap{
 	display:flex;
@@ -20,26 +17,6 @@ html,body,#root,.wrap{
 		flex:1;
 		display:flex;
 		flex-direction:column;
-<<<<<<< HEAD
-	}
-	.footer{
-		width:100%;
-		height:1rem;
-		display:flex;
-		background: #fff;
-		text-align: center;
-
-        box-shadow: 0 -3px 10px 0 rgba(0,0,0,.2);
-		li{
-			flex:2;
-			a{
-				flex-direction: column;
-			
-				span{
-					font-size:12px;
-					display:block;
-				
-=======
 		overflow-y: auto;
 	}
 	.footer{
@@ -60,7 +37,6 @@ html,body,#root,.wrap{
 					font-size:14px;
 					display:block;
 					padding:5px 0;
->>>>>>> dev
 					color:#000;
 				}
 			}

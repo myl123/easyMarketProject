@@ -1,19 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import Footer from '../component/footer';
-// import '../sass/style.scss'
-class Fication extends Component {
-    render() {
-        return (
-            <div className="wrap">
-            <div className="header">分类</div>
-            <Footer/>
-        </div>
-        )
-    }
-}
-export default Fication
-=======
 import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 import Footer from '../component/footer';
 import {inject, observer} from 'mobx-react';
@@ -78,4 +63,3 @@ class Fication extends Component {
 		}
 }
 export default (withRouter(Fication))
->>>>>>> dev
