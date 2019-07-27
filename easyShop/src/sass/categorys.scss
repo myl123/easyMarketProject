@@ -1,0 +1,30 @@
+.am-tabs{
+	display:flex;
+	align-items: center;
+	flex-shrink: 0;
+	background: #fff;
+	overflow-x: auto;
+	li{
+		flex-shrink: 0;
+		width: 20%;
+		font-size: .28rem;
+		padding: .2rem 0;
+		text-align: center;
+    }
+	li:first-of-type{
+		padding-left:.2rem;
+	}
+}
+.categoryDetail{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	p{
+		font-size:.28rem;
+	}
+	p:last-of-type{
+		 color: grey;
+		 height: .5rem;
+	}
+}

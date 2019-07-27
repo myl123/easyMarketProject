@@ -15,11 +15,18 @@ class Manufacturer extends Component {
         return (
             <div className="brandManu">
             {
+<<<<<<< HEAD
                 this.props.home && this.props.home.brandListdata.map(item => (
                     // console.log(item)
                     <NavLink className="brandMenu" key={item.id} to={`/brandDetail/${item.id}`}>
                         <img src={item.new_pic_url} alt="" />
                          {/* <span>{item.name}</span> */}
+=======
+               this.props.home && this.props.home.brandListdata.map(item => (
+                    // console.log(item)
+                    <NavLink className="brandMenu" key={item.id} to={`/brandDetail/${item.id}`}>
+                        <img src={item.new_pic_url} alt="" />
+>>>>>>> dev
                     </NavLink>
                 ))
 

@@ -8,7 +8,11 @@ import { inject, observer } from 'mobx-react';
 // import "../sass/footer/footer.scss"
 class NewProduct extends Component {
     componentDidMount() {
+<<<<<<< HEAD
         
+=======
+        console.log(this.props)
+>>>>>>> dev
         this.props.home.gethomeData()
         
     }

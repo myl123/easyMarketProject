@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import Footer from '../component/footer'
+<<<<<<< HEAD
 import Swiper from "swiper/dist/js/swiper.js"
+=======
+import * as Swiper from 'swiper/dist/js/swiper.js';
+>>>>>>> dev
 import { inject, observer } from 'mobx-react';
 import "swiper/dist/css/swiper.min.css"
 import "../sass/home.scss"
@@ -20,6 +24,7 @@ class Home extends Component {
                 <div className="header">
                     {/* swier */}
                     <div className="swiper">
+<<<<<<< HEAD
                         <div className="swiper-container">
                             <div className="swiper-wrapper">
                                 {
@@ -34,6 +39,23 @@ class Home extends Component {
                             <div className='swiper-pagination'></div>
                         </div>
                     </div>
+=======
+                        
+						   <div className="swiper-container">
+												 <div className="swiper-wrapper">
+														 {
+																 this.props.home && this.props.home.bannerdata.map(item => (
+																		 <div className="swiper-slide" key={item.id}>
+																				 <img src={item.image_url} alt="" />
+																		 </div>
+																 ))
+
+														 }
+												 </div>
+												 <div className='swiper-pagination'></div>
+										 </div>
+						   </div>
+>>>>>>> dev
                     {/* swier下的框 */}
                     <div className="content">
                         <NavTo />

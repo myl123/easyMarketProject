@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .searchWrap{
 	position: fixed;
     top: 0;
@@ -13,5 +14,126 @@
 		border-radius: .1rem;
 		font-size: .28rem;
 		color: #666;
+=======
+.header{
+	display:flex;
+	flex-direction:column;
+	.searchWrap{
+		position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: .8rem;
+	    background: #fff;
+	    box-shadow: 0 0.04rem 0.08rem 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.searchInput{
+			width: 90%;
+			height: 70%;
+			background: #ededed;
+			border-radius: .1rem;
+			font-size: .28rem;
+			color: #666;
+		}
+		.searchInput, .searchWrap {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	.tabPageContent{
+		min-height: 100%;
+		padding-bottom: 1.04rem;
+		flex:1;
+		display:flex;
+		justify-content: space-between;
+		.tabsWrap{
+			position: fixed;
+			top: .84rem;
+			bottom: 1.2rem;
+			width: 2rem;
+			background: #fff;
+			border-right: 1px solid #f2f2f6;
+			li{
+				width: 100%;
+				text-align: center;
+				font-size: .28rem;
+				padding: .2rem 0;
+			}
+			li:last-of-type{
+				width:.1rem;
+				padding: .3rem 0;
+				background:#108ee9;
+				position:absolute;
+				left:0;
+				top:0;
+			}
+		}
+		.categogContet{
+			margin-top: .84rem;
+			margin-left: 2rem;
+			overflow-y: auto;
+			display: flex;
+			flex-direction:column;
+			>span{
+				width:100%;
+				height:2rem;
+				position:relative;
+				img{
+					width:100%;
+					height:100%;
+				}
+				em{
+					position: absolute;
+					left: 30%;
+					top: 35%;
+					color: #fff;
+					font-style: normal;
+					z-index: 999;
+					font-size: 0.3rem;
+				}
+			}
+			>p{
+				background: #fff;
+				padding: .2rem;
+				font-size: .28rem;
+				color: #2196f3;
+				text-align: center;
+			}
+			.subCategory{
+				display:flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+				li{
+					display:flex;
+					flex-direction: column;
+					width:50%;
+					justify-content: center;
+					align-items: center;
+					span:first-of-type{
+						display:block;
+						width:50%;
+						height:1.27rem;
+						img{
+							width:100%;
+							height:100%;
+						}
+					}
+					span:last-of-type{
+						font-size: .28rem;
+						text-align: center;
+						padding: .2rem 0;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						width: 1.3rem;
+					}
+				}
+			}
+		}
+>>>>>>> dev
 	}
 }

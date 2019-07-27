@@ -5,6 +5,7 @@ class Index extends Component {
     render() {
         return (
             <Router>
+<<<<<<< HEAD
                 <Switch>
                     {
                         router&&router.map((item,index)=>{
@@ -14,13 +15,28 @@ class Index extends Component {
 								}
 							} key={index}></Route>
                         })
+=======
+               <Switch>
+                    {
+                      router&&router.map((item,index)=>{
+                            return !item.redirect&&<Route path={item.path} render={
+												props=>{
+													return React.createElement(item.component)
+												}
+							         }key={index}></Route>
+                      })
+>>>>>>> dev
                     }
 					{
 						router&&router.map((item,index)=>{
 							return item.redirect&&<Redirect from={item.redirect} to={item.path} key={index}></Redirect>
 						})
 					}
+<<<<<<< HEAD
                 </Switch>
+=======
+				</Switch>
+>>>>>>> dev
             </Router>
         )
     }

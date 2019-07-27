@@ -13,11 +13,20 @@ class Footer extends Component {
 
     }
     render() {
+<<<<<<< HEAD
         // console.log(this.props.home)
         return (
             <ul className="navTo">
                 {
                     this.props.home && this.props.home.channeldata.map(item => (
+=======
+        return (
+            <ul className="navTo">
+			{
+			}
+                {
+                   this.props.home && this.props.home.channeldata.map(item => (
+>>>>>>> dev
                         <li key={item.id}>
                             <NavLink to={item.url} key={item.id}>
                                 <dl>
