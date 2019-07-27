@@ -1,0 +1,43 @@
+*{
+    padding:0;
+    margin:0;
+}
+li{
+    list-style: none;
+}
+.brandDetail{
+    width:100%;
+    height:100%;
+    background: rgb(230, 227, 227);
+    font-size: .4rem;
+}
+.brand{
+    width:100%;
+    height:8rem;
+    background: #fff;
+    p{
+        height:1rem;
+        line-height: 1rem;
+        display: flex;
+        span{
+            margin-left: .2rem;
+            flex:4;
+        }
+        b{
+            flex:6;
+        }
+    }
+    .barndImg{
+        width:100%;
+        height:4.5rem;
+        img{
+            width:100%;
+            height:4.5rem; 
+        }
+        span{
+            font-size: .3rem;
+            margin:.3rem .4rem;
+            color:rgb(173, 171, 171);
+        }
+    }
+}
