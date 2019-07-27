@@ -10,7 +10,7 @@
 
 ### 图片预览
 
-> ![Image text](https://github.com/yguo18/CircleFollowButton/raw/master/Assets/Image/xiaoguotu.png)
+> ![Image text](https://github.com/jasonandjay/easyMarketApp/blob/master/imgs/home.png)
 
 ------
 
