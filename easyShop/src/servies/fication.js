@@ -38,7 +38,14 @@ export function keyword(parmas){
 //分类下面的内容
 export function category(parmas){
   return request({
-      url:`/goods/category?id=${parmas}`,
+      url:`/api/goods/category?id=${parmas}`,
+      method:"GET",
+  })
+}
+//奇趣分类下的数据
+export function categoryId(parmas){
+  return request({
+      url:`/api/goods/list?categoryId=${parmas}&page=1&size=1000`,
       method:"GET",
   })
 }

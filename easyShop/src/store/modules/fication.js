@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {fica,ficaImg,details,search,keyword,category} from '../../servies/fication';
+import {fica,ficaImg,details,search,keyword,category,categoryId} from '../../servies/fication';
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -8,7 +8,7 @@ import {fica,ficaImg,details,search,keyword,category} from '../../servies/ficati
 	@observable searchs=[]
 	@observable vague=[]
 	@observable gory=[]
-
+	@observable categoList=[]
     @action getData(){
        fica().then((res)=>{
 		    this.data=res.data.categoryList
@@ -41,6 +41,11 @@ import {fica,ficaImg,details,search,keyword,category} from '../../servies/ficati
 		@action goodsCat(parmas){
 				category(parmas).then((res)=>{
 					this.gory=res.data
+			})
+		}
+		@action catego(parmas){
+				categoryId(parmas).then((res)=>{
+					this.categoList=res.data
 			})
 		}
 }

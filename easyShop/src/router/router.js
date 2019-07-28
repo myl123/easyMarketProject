@@ -37,7 +37,10 @@ const Categorys = Loadable({
 	loading: Loading,
 	loader: () => import("../viewser/categorys")
 });
-
+const Goods = Loadable({
+	loading: Loading,
+	loader: () => import("../viewser/goods")
+});
 export default [{
 	path: "/home",
 	component: Home,
@@ -69,6 +72,9 @@ export default [{
 }, {
 	path: "/categorys",
 	component: Categorys,
+},{
+	path: "/goods",
+	component: Goods,
 },{
 	redirect: "/",
 	path: "/home"

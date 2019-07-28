@@ -10,7 +10,6 @@ export default class Home{
     @observable topicListdata=[]
     @action gethomeData(){
         homeData().then((res)=>{
-        console.log(res.data)
         this.bannerdata=res.data.banner
         this.channeldata=res.data.channel
         this.brandListdata=res.data.brandList
