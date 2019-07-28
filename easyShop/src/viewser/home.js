@@ -71,7 +71,7 @@ return (
                 <div className="cate" key={ite.id}>
                     <NavLink className="categorysMenu"
                         // key={item.id}
-                        to={`/Goods/${item.id}`}
+                        to={`/goods/${ite.id}`}
                     >
                         <img src={ite.list_pic_url} alt="" />
                         <div className="cateTop">

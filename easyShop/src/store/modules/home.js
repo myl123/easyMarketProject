@@ -12,7 +12,7 @@ export default class Home{
 
     @action gethomeData(){
         homeData().then((res)=>{
-        // console.log(res.data)
+        console.log(res.data)
         this.bannerdata=res.data.banner
         this.channeldata=res.data.channel
         this.brandListdata=res.data.brandList
