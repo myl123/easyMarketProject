@@ -7,3 +7,12 @@ export function homeData(){
       method:"get"
   })
 }
+
+//获取详情数据
+export function detailData(params){
+  return request({
+      url:`/goods/detail?id=${params}`,
+      method:"get"
+  })
+}
+

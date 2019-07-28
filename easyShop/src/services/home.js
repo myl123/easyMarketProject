@@ -7,3 +7,11 @@ export function homeData(){
       method:"get"
   })
 }
+
+//获取详情数据
+export function detailData(){
+  return request({
+      url:'/goods/detail',
+      method:"get"
+  })
+}

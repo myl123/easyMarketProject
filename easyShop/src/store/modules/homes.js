@@ -1,5 +1,6 @@
 import { observable, action } from "mobx";
 import {homeData} from "../../services/homes"
+import {detailData} from "../../services/homes"
 export default class Home{
     // @action 修饰方法
     @observable bannerdata=[] 
@@ -8,9 +9,10 @@ export default class Home{
     @observable newGoodsListdata=[]
     @observable hotGoodsListdata=[]
     @observable topicListdata=[]
+    @observable  getdetaiList=[]
     @action gethomeData(){
         homeData().then((res)=>{
-        console.log(res.data)
+        // console.log(res.data)
         this.bannerdata=res.data.banner
         this.channeldata=res.data.channel
         this.brandListdata=res.data.brandList
@@ -18,5 +20,11 @@ export default class Home{
         this.hotGoodsListdata=res.data.hotGoodsList
         this.topicListdata=res.data.topicList
 	   })
+    }
+
+    @action getdetailData(){
+        detailData(id).then((res)=>{
+            this.getdetaiList=res.data
+        })
     }
 }
