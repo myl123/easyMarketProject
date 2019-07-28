@@ -25,6 +25,9 @@ return (
                     <span><BackIcon /></span>
                     <b>{ite.name}</b>
                   </p>
+                  <div className="goodsBottom">
+                    
+                  </div>
                 </div>
               }
               else{
