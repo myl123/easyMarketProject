@@ -44,6 +44,10 @@ const TopicDetail=Loadable({
   loading: Loading,
   loader: () => import("../viewser/topicDetail")
 });
+const Goods=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/goods/goods")
+});
 export default [
   {
     path: "/login",
@@ -65,6 +69,11 @@ export default [
     // name: '制造商详情',
     path: '/brandDetail/:id',
     component: BrandDetail
+  },
+  {
+  // name: '制造商详情',
+  path: '/goods/:id',
+  component: Goods
   },
   {
     path: '/categorys/:id',

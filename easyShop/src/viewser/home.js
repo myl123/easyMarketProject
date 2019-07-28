@@ -4,6 +4,8 @@ import * as Swiper from 'swiper/dist/js/swiper.js';
 import { inject, observer } from 'mobx-react';
 import "swiper/dist/css/swiper.min.css"
 import "../sass/home.scss"
+import { Icon } from 'antd';
+import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
 import NavTo from "../component/navRoute/navRoute"
 import Manufacturer from "../component/manufacturer/manufacturer"
 import NewProduct from "../component/newProduct/newProduct"
@@ -14,7 +16,7 @@ import Special from "../component/special/special"
 class Home extends Component {
 
     render() {
-        // console.log(this.props.home)
+        console.log(this.props.home)
         return (
             <div className="wrap">
                 <div className="header">
@@ -39,26 +41,68 @@ class Home extends Component {
                         <NavTo />
                     </div>
                     {/* 品牌制造商 */}
-                   
+
                     <div className="brands">
                         <p>品牌制造商直销</p>
-                        <Manufacturer/>
+                        <Manufacturer />
                     </div>
                     {/* 新品首发 */}
                     <div className="newProduct">
                         <p>新品首发</p>
                         <NewProduct />
-                        
+
                     </div>
                     {/* 人气推荐 */}
                     <div className="popularity">
                         <p>人气推荐</p>
-                        <Popularity /> 
+                        <Popularity />
                     </div>
                     {/* 专题精选 */}
                     <div className="special">
                         <p>专题精选</p>
-                        <Special /> 
+                        <Special />
+                    </div>
+                    {/* 居家   以下所有 */}
+                    <div className="category">
+                        {
+                            this.props.home && this.props.home.categoryListdata.map(item => (
+                                <div key={item.id}>
+                                    <p key={item.id}>{item.name}</p>
+                                    <div className="categorys">
+                                    {
+                                        item.goodsList.map(ite => (
+                                            // console.log()
+                                            <div className="cate" key={ite.id}>
+                                                <NavLink className="categorysMenu"
+                                                    // key={item.id}
+                                                    to={`/Goods/${item.id}`}
+                                                >
+                                                    <img src={ite.list_pic_url} alt="" />
+                                                    <div className="cateTop">
+                                                        <h4>{ite.name}</h4>
+                                                        <h5>￥{ite.retail_price}</h5>
+                                                    </div>
+                                                </NavLink>
+                                            </div>
+
+                                        ))
+
+                                    }
+  <Link to={`/categorys/${item.id}`} className="categoryMoreGoods">
+                <div className="categ">
+                    更多{item.name}好物<br />
+                    <Icon type="right-circle" className="iconstyle"/>
+                </div>
+                
+              </Link>
+                                    </div>
+                                   
+                                </div>
+                            ))
+
+                        }
+
+
                     </div>
                 </div>
                 <Footer />
@@ -75,10 +119,10 @@ class Home extends Component {
             },
             pagination: {
                 el: '.swiper-pagination',//这里是分页器设置
-                type:"bullets"
+                type: "bullets"
             },
-            observer:true,
-            observerParents:true
+            observer: true,
+            observerParents: true
         });
         this.props.home.gethomeData()
 
