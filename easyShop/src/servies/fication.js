@@ -56,7 +56,7 @@ export function relatedId(parmas){
       method:"GET",
   })
 }
-//购物车件数
+//购物车件数的
 export function goodscount(){
   return request({
       url:'/api/cart/goodscount',
