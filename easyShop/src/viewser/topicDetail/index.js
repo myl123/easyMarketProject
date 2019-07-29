@@ -27,7 +27,7 @@ class topicDetail extends Component {
               {item.content}
                   {/* <img src={item.content} alt=""/> */}
                   <span>
-                    {item.simple_desc}
+                    {/* {item.simple_desc} */}
                   </span>
                 </div>
               </div>
