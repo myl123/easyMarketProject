@@ -23,6 +23,7 @@ class Goods extends Component {
     this.setState({
       visible: false,
     });
+		
   };
 
   showChildrenDrawer = () => {
