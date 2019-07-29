@@ -49,3 +49,10 @@ export function categoryId(parmas){
       method:"GET",
   })
 }
+//点击分类下的数据跳转页面
+export function relatedId(parmas){
+  return request({
+      url:`/api/goods/related?id=${parmas}`,
+      method:"GET",
+  })
+}

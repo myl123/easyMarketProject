@@ -97,8 +97,9 @@ class Categorys extends Component {
 			   return <p></p>
 		 }else{
 			  return this.props.fication.categoList.data&&this.props.fication.categoList.data.map((item,index)=>{
-			  	return <ol key={index} onClick={()=>{
-						  history.push(`/goods/${item.id}`)
+			  	let name=item.name;
+					return <ol key={index} onClick={()=>{
+						 history.push({ pathname:'/goods',state:{name : name },id:{id:item.id} })
 					}}>
 			  				<li><img src={item.list_pic_url}/></li>
 			  				<li>{item.name}</li>
