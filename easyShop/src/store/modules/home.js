@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {homeData,detailData} from "../../services/homes"
+import {homeData,detailData,topicData,messageData} from "../../services/homes"
 
 export default class Home{
     // @action 修饰方法
@@ -15,6 +15,10 @@ export default class Home{
     @observable infodata=[]
     @observable commentdata=[]
     @observable attributedata=[]
+
+    @observable topicdata=[]
+
+    @observable messagedata=[]
 
     @action gethomeData(){
         homeData().then((res)=>{
@@ -38,5 +42,21 @@ export default class Home{
             this.attributedata=res.data.attribute
         })
     }
+
+    @action topicData(params){
+        topicData(params).then((res)=>{
+            // console.log(res.data)
+            this.topicdata=res.data.data
+        })
+    }
+
+    @action messageData(params){
+        messageData(params).then((res)=>{
+            console.log(res.data)
+        })
+    }
+
+
+
     
 }

@@ -10,27 +10,40 @@ import BackIcon from "../../component/back"
 @observer
 class topicDetail extends Component {
   render() {
-    // console.log()
+    console.log()
     let data = this.props.history.location.pathname.substr(13)
     return (
       <div className="topicDetail">
         {
-           this.props.home && this.props.home.topicListdata.map(item => {
-            console.log(item.content)
+          this.props.home && this.props.home.topicListdata.map(item => {
+            console.log(item)
             if (item.id == data) {
               return <div key={item.id} className="topic">
-                 <p>
-                  <span><BackIcon/></span>
+                <p>
+                  <span><BackIcon /></span>
                   <b>{item.title}</b>
                 </p>
-                <div className="topicImg">
-              {item.content}
-                  {/* <img src={item.content} alt=""/> */}
-                  <span>
-                    {/* {item.simple_desc} */}
-                  </span>
+                <div className="topicgun">
+                  <div className="topicImg"
+                    dangerouslySetInnerHTML={{ __html: item.content }} />
+                    <div className="liuyan">
+                      <p>精选留言<Icon type="edit" /></p>
+                      {
+
+                      }
+                      <p></p>
+                    </div>
                 </div>
+
+
+                {
+
+                }
+                <span>
+               
+                </span>
               </div>
+
             }
           })
         }
@@ -38,7 +51,9 @@ class topicDetail extends Component {
     )
   }
   componentDidMount() {
+    const id = this.props.history.location.pathname.substr(13)
     this.props.home.gethomeData()
+    // this.props.home.messageData(id)
 
   }
 }
