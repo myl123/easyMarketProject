@@ -11,6 +11,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId} from 
 	@observable categoList=[]
 	@observable related=[]
 	@observable detailsList=[]
+	
     @action getData(){
        fica().then((res)=>{
 		    this.data=res.data.categoryList

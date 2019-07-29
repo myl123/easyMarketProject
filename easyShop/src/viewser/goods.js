@@ -4,18 +4,46 @@ import Nav from '../component/nav';
 import {inject, observer} from 'mobx-react';
 import * as Swiper from 'swiper/dist/js/swiper.js';
 import "swiper/dist/css/swiper.min.css"
-import '../sass/goods.scss'
+import '../sass/goods.scss';
+import 'antd/dist/antd.css';
 import Good from '../component/good'
 import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
+import { Drawer, Button } from 'antd';
 @inject('fication')
 @observer
 class Goods extends Component {
-	 
+	  state = { visible: false, childrenDrawer: false };
+		 showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+  showChildrenDrawer = () => {
+    this.setState({
+      childrenDrawer: true,
+    });
+  };
+
+  onChildrenDrawerClose = () => {
+    this.setState({
+      childrenDrawer: false,
+    });
+  };
+	state={
+		cont:0
+	}
     render() {
 	  let {issue}=this.props.fication.detailsList
 		let {name}=this.props.location.state;
 		let {id}=this.props.location.id||[];
-		
+		let {cont}=this.state;
 		let {goods_brief,retail_price}=this.props.fication.detailsList.length!=0&&this.props.fication.detailsList.info
 		return (
             <div className="wrap">
@@ -23,10 +51,7 @@ class Goods extends Component {
 				<div className="am-carousel">
 				   <div className="slider-frame">
 				      <div className="swiper-container">
-							{
-								console.log(this.props)
-							}
-									 <div className="swiper-wrapper">
+							   <div className="swiper-wrapper">
 											 <div className="swiper-slide" >
 											 		<img src="http://pic25.nipic.com/20121112/9252150_150552938000_2.jpg" alt="" />
 											 </div>
@@ -57,8 +82,71 @@ class Goods extends Component {
 								 <li>{goods_brief}</li>
 								 <li>{retail_price}</li>
 								 <li> 
-										<span>× 0</span>
-									<span>选择规格 <em>&gt;</em></span>
+										<span>× {this.state.cont}</span>
+									<span onClick={this.showDrawer}>选择规格 <em>&gt;</em></span>
+									<Drawer
+										width={520}
+										closable={false}
+										onClose={this.onClose}
+										visible={this.state.visible}
+                  >
+                
+
+          <div
+            style={{
+              bottom: 0,
+              width: '100%',
+              padding: '10px 0',
+              textAlign: 'right',
+              background: '#fff',
+            }}
+          >
+					   <div className="goodsSizeDo">
+						    <ol className="goodsSizeSetMsg">
+								   <li>
+									    <span>单价</span>
+											<span>￥ 69</span>
+											<em onClick={()=>{
+												this.setState({
+													visible: false,
+												});
+											}}>×</em>
+									 </li>
+									 <li>
+											<span>库存</span>
+											<span>100件</span>
+									 </li>
+									 <li>
+										 <span>已选择:</span>
+									 </li>
+									 <li>
+									     <span>数量</span>
+											 <div className="input">
+											   <em onClick={()=>{
+													  this.add('add',this.state.cont+1)
+												 }}>+</em>
+												 <input type="text" value={this.state.cont} ref="input"/>
+												 <em onClick={()=>{
+													  this.add('rem',(this.state.cont-1))
+												 }}>-</em>
+											 </div>
+									 </li>
+								</ol>
+						 </div>
+
+            <Button
+              style={{
+                marginRight: 8,
+              }}
+              onClick={this.onClose}
+            >
+              加入购物车
+            </Button>
+            <Button onClick={this.onClose} type="primary">
+              立即下单
+            </Button>
+          </div>
+        </Drawer>
 								 </li>
              </ul>
 				   </div>
@@ -97,7 +185,7 @@ class Goods extends Component {
     }
 	componentDidMount(){
 		let {id}=this.props.location.id||[];
-		this.props.fication.detas(id)//标题
+		this.props.fication.detas(id)//标题e
 		this.props.fication.relate(id)//大家看底下内容
 		var mySwiper = new Swiper('.swiper-container', {
 				loop: true,//这里是自动轮播
@@ -113,6 +201,20 @@ class Goods extends Component {
 				observerParents:true
 		});
  }
-  
+  add(type,num){//加
+		if(type==='add'){
+			 this.setState({
+				 cont:num
+			})
+		 }else if(type==='rem'){//减
+			 if(num<=0){
+				 return
+			 }
+			   this.setState({
+			  	 cont:num
+			  })
+     
+		 }
+	}
 }
 export default (withRouter(Goods))

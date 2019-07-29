@@ -8,6 +8,7 @@ export default class Home{
     @observable newGoodsListdata=[]
     @observable hotGoodsListdata=[]
     @observable topicListdata=[]
+		
     @action gethomeData(){
         homeData().then((res)=>{
         this.bannerdata=res.data.banner
