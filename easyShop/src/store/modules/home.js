@@ -11,11 +11,12 @@ export default class Home{
     @observable topicListdata=[]
     @observable categoryListdata=[]
 
-    @observable detailDatadata=[]
+    @observable gallerydata=[]
+    @observable infodata=[]
 
     @action gethomeData(){
         homeData().then((res)=>{
-        console.log(res.data)
+        // console.log(res.data)
         this.bannerdata=res.data.banner
         this.channeldata=res.data.channel
         this.brandListdata=res.data.brandList
@@ -28,7 +29,9 @@ export default class Home{
 
     @action getdetailData(id){
         detailData(id).then((res)=>{
-            this.detailDatadata=res.data
+            console.log(res.data)
+            this.gallerydata=res.data.gallery
+            this.infodata.push(res.data.info)
         })
     }
     
