@@ -20,6 +20,7 @@ export default class Home{
 
     @observable messagedata=[]
 
+    @observable estimatedata=[]
     @action gethomeData(){
         homeData().then((res)=>{
         // console.log(res.data)
@@ -53,6 +54,7 @@ export default class Home{
     @action messageData(params){
         messageData(params).then((res)=>{
             console.log(res.data)
+            this.estimatedata=res.data.data
         })
     }
 

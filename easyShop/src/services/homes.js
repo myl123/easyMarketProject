@@ -27,7 +27,7 @@ export function topicData(params){
 //获取留言数据 
 export function messageData(params){
   return request({
-      url:`/comment/list?valueId=${params}&typeid=1`,
+      url:`/comment/list?valueId=${params}&typeId=1`,
       method:"post"
   })
 }

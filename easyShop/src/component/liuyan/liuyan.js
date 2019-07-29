@@ -32,7 +32,7 @@ return (
                   {
 this.props.home&&this.props.home.estimatedata.map(ite=>{
   return <div key={ite.id} className="allliyan">
-    <p>匿名用户<span>{ite.add_time}</span></p>
+    <h5>匿名用户<span>{ite.add_time}</span></h5>
     <b>{ite.content}</b>
   </div>
 })
