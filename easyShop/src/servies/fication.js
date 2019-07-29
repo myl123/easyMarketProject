@@ -44,6 +44,7 @@ export function category(parmas){
 }
 //奇趣分类下的数据
 export function categoryId(parmas){
+	console.log(parmas,'..pa')
   return request({
       url:`/api/goods/list?categoryId=${parmas}&page=1&size=1000`,
       method:"GET",

@@ -26,7 +26,8 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 								{
 									currentId.subCategoryList&&currentId.subCategoryList.map((item,index)=>{
 										return <li onClick={()=>{
-											   this.props.history.push(`/categorys/${item.id}`)
+
+											   this.props.history.push(`/categorysc/${item.id}`)
 											}}>
 												<span><img src={item.wap_banner_url}/></span>
 												<span>{item.name}</span>

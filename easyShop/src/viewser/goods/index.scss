@@ -1,0 +1,132 @@
+.goodsContent{
+    width:100%;
+    height:100%;
+    font-size: .4rem;
+    overflow-y:scroll; 
+}
+.goodsTop{
+    width:100%;
+    p{
+        height:1rem;
+        line-height: 1rem;
+        display: flex;
+        font-size: .3rem;
+        border-bottom:.01rem solid #ccc;
+        span{
+            margin-left: .2rem;
+            flex:3;
+        }
+        b{
+            flex:7;
+        }
+    }
+}
+.swiper-nr{
+    width:100%;
+    height:auto;
+    background: #ccc;
+    .swiper{
+        width:100%;
+        height:7rem;
+        // background: red;
+    }
+    .swiper-wrapper{
+        width:100%;
+        height:7rem;
+    }
+    .swiper-slide img{
+        width:100%;
+        height:100%;
+    }
+    .swiper-pagination{
+        top:65%;
+    }
+}
+.goodsWy{
+    width:100%;
+    height:.8rem;
+    font-size: .25rem;
+    background: rgb(230, 227, 227);
+    ul{
+        width:100%;
+        height:.8rem;
+        line-height: .8rem;
+        display: flex;
+        text-align: center;
+        li{
+            flex:3;
+            .ic{
+                color:red;
+            }
+        }
+    }
+}
+.goodsSection{
+    width:100%;
+    height:3rem;
+    background: rgb(235, 233, 233);
+    border-bottom:.01rem solid #ccc;
+    span{
+        width:100%;
+        margin-top: .5rem;
+        display: inline-block;
+        font-size: .43rem;
+        text-align: center;
+    }
+    p{
+        font-size: .29rem;
+        text-align: center;
+    }
+    b{
+        color:red;
+        display: block;
+        text-align: center;
+        margin-top: .3rem;
+    }
+    h5{
+        float: right;
+        font-weight: normal;
+    }
+}
+.evaluate{
+    width:100%;
+    height:auto;
+    margin-top: .3rem;
+    .pja{
+        width:100%;
+        height:4rem;
+        background: skyblue;
+    }
+    .pj{
+        width:100%;
+        font-size: .33rem;
+        height:1rem;
+        line-height: 1rem;
+        background: #ccc;
+        span{
+            float: right;
+        }
+    }
+   
+}
+.commodity{
+    width:100%;
+    height:4rem;
+    background: pink;
+    font-size: .35rem;
+    b{
+        text-align: center;
+        display: block;
+        line-height: 1rem;
+    }
+    .goodscs{
+        text-align: left;
+    }
+}
+.goodsBottom{
+    width:100%;
+    height:1rem;
+    background: #ccc;
+    position: fixed;
+    bottom:0;
+}

@@ -29,8 +29,8 @@
 			align-items:center;
 			margin: .3rem 0;
 			span:last-of-type{
-				margin-left:.05rem;
-				color:red;
+				 margin-left:.05rem;
+				 color:red;
 			}
 		}
 		li:first-of-type{
@@ -50,14 +50,18 @@
 		li:nth-of-type(3){
 			  margin-bottom: .28rem;
               margin-left: -.01rem;
-			  color:#eee
+			  span{
+					color:#888;
+					font-size: .3rem;
+				}
 		}
 		li:nth-of-type(4){
 			margin-left: -.148rem;
 			span{
-				text-align: left;
-				margin-left: -5.32rem;;
-				margin-top: -.27rem;
+					text-align: left;
+					margin-left: -5.32rem;;
+					margin-top: -.27rem;
+					color:#000;
 		    }
 		}
 		li:last-of-type{

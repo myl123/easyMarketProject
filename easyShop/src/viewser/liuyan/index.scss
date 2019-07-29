@@ -1,0 +1,48 @@
+
+.asd{
+    width:100%;
+    height:100%;
+    overflow-y:scroll; 
+    font-size: .4rem;
+    h4{
+        height:1rem;
+        line-height: 1rem;
+        display: flex;
+        font-size: .3rem;
+        border-bottom:.01rem solid #ccc;
+        span{
+            margin-left: .2rem;
+            flex:3;
+        }
+        b{
+            flex:7;
+        }
+    }
+}
+    
+.allliyan{
+    width:100%;
+    height:auto;
+    padding:.05rem .3rem;
+    margin-top: .2rem;
+    border-bottom:.01rem solid #ccc;
+    margin-bottom: .5rem;
+    div{
+        margin-top: .5rem;
+        border-bottom: .02rem solid #ccc;
+        p{
+            border:none;
+            font-size: .25rem;
+            span{
+                display:block;
+                float: right;
+            }
+        }
+        b{
+            line-height: 0;
+            font-size: .3rem;
+            color:rgb(168, 164, 164);
+        }
+    }
+    
+}

@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+# easyMarketProject
+
+------
+
+主要应用mobx
+
+> * observable   修饰属性
+> * action  修饰方法
+> * inject  装饰器
+
+### 图片预览
+
+> 
+
+------
+
+##目录简介
+
+- [ ] 首页
+- [x] 专题
+- [x] 分类
+- [ ] 购物车
+- [x] 我的
+
+=======
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +92,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+>>>>>>> dev

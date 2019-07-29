@@ -8,7 +8,7 @@ import { inject, observer } from 'mobx-react';
 // import "../sass/footer/footer.scss"
 class NewProduct extends Component {
     componentDidMount() {
-        console.log(this.props)
+        
         this.props.home.gethomeData()
         
     }
@@ -19,6 +19,7 @@ class NewProduct extends Component {
             {
                 this.props.home && this.props.home.newGoodsListdata.map(item => (
                     // console.log(item)
+                    <NavLink to={`/goods/${item.id}`} key={item.id}>
                     <dl key={item.id}>
                         <dt><img src={item.list_pic_url} alt="" /></dt>
                         <dd>
@@ -26,6 +27,7 @@ class NewProduct extends Component {
                         <p className="productPrice">￥{item.retail_price}</p>
                         </dd>
                     </dl>
+                    </NavLink>
                 ))
             }
         </div>

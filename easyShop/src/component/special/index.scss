@@ -1,16 +1,15 @@
 .special-top{
     width:100%;
     height:5.5rem;
-}
-.specialTops{
-    width:100%;
-    height:5.5rem;
-    // background: pink;
-    position: absolute;
-    display: flex;
+    .specialTops{
+        width:100%;
+        height:5.5rem;
+        display: flex;
         overflow-x: auto;
         overflow-y: hidden;
+    }
 }
+
 .special-content{
     width:80%;
     height:5.2rem;

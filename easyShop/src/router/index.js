@@ -5,22 +5,22 @@ class Index extends Component {
     render() {
         return (
             <Router>
-               <Switch>
+                <Switch>
                     {
-                      router&&router.map((item,index)=>{
+                        router&&router.map((item,index)=>{
                             return !item.redirect&&<Route path={item.path} render={
-												props=>{
-													return React.createElement(item.component)
-												}
-							         }key={index}></Route>
-                      })
+								props=>{
+									return React.createElement(item.component)
+								}
+							} key={index}></Route>
+                        })
                     }
 					{
 						router&&router.map((item,index)=>{
 							return item.redirect&&<Redirect from={item.redirect} to={item.path} key={index}></Redirect>
 						})
 					}
-				</Switch>
+                </Switch>
             </Router>
         )
     }

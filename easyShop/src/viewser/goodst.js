@@ -13,7 +13,7 @@ import { Rate } from 'antd';
 
 @inject('fication')
 @observer
-class Goods extends Component {
+class Goodst extends Component {
 	  state = { visible: false, childrenDrawer: false };
 		 showDrawer = () => {
     this.setState({
@@ -229,4 +229,4 @@ class Goods extends Component {
 		 }
 	}
 }
-export default (withRouter(Goods))
+export default (withRouter(Goodst))
