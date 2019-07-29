@@ -8,7 +8,9 @@ import '../sass/goods.scss';
 import 'antd/dist/antd.css';
 import Good from '../component/good'
 import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
-import { Drawer, Button } from 'antd';
+import { Drawer, Button,Icon} from 'antd';
+import { Rate } from 'antd';
+
 @inject('fication')
 @observer
 class Goods extends Component {
@@ -20,10 +22,9 @@ class Goods extends Component {
   };
 
   onClose = () => {
-    this.setState({
-      visible: false,
-    });
-		
+    
+		this.props.fication.goodscounts()
+		console.log(this.props.fication)
   };
 
   showChildrenDrawer = () => {
@@ -47,8 +48,8 @@ class Goods extends Component {
 		let {cont}=this.state;
 		let {goods_brief,retail_price}=this.props.fication.detailsList.length!=0&&this.props.fication.detailsList.info
 		return (
-            <div className="wrap">
-            	<Nav title={name}/>
+     <div className="wrap">
+       	<Nav title={name}/>
 				<div className="am-carousel">
 				   <div className="slider-frame">
 				      <div className="swiper-container">
@@ -181,6 +182,16 @@ class Goods extends Component {
 						}
 				 </div>
 				</div>
+				<ol className="foot">
+				   <li>
+					    ☆
+					 </li>
+					 <li><Icon type="shopping-cart" /><em>{this.state.cont}</em></li>
+					 <li>
+					    <button>加入购物车</button>
+							<button>立即购买</button>
+          </li>
+				</ol>
       </div> 
         )
     }
