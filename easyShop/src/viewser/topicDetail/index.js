@@ -6,6 +6,8 @@ import { withRouter } from "react-router-dom";
 import { Icon } from "antd"
 import Item from 'antd/lib/list/Item';
 import BackIcon from "../../component/back"
+import Liuyan from "../../component/liuyan/liuyan"
+import { BrowserRouter as NavLink, Link } from "react-router-dom";
 @inject('home')
 @observer
 class topicDetail extends Component {
@@ -28,26 +30,19 @@ return (
                 dangerouslySetInnerHTML={{ __html: item.content }} />
                 <div className="liuyan">
                   <p>精选留言<Icon type="edit" /></p>
+                  <Liuyan />
                   
-                  {
-this.props.home&&this.props.home.estimatedata.map(ite=>{
-  return <div key={ite.id} className="allliyan">
-    <p>匿名用户<span>{ite.add_time}</span></p>
-    <b>{ite.content}</b>
-  </div>
-})
-                  }
-                  <p></p>
+                <em></em>
                 </div>
+                <div className="tz">
+              <div 
+              onClick={()=>this.props.history.push(`/comment/${item.id}`)}
+                  >查看更多评论
+              </div>
             </div>
-
-
-            {
-
-            }
-            <span>
+            </div>
             
-            </span>
+           
           </div>
 
         }

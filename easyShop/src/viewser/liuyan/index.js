@@ -6,19 +6,18 @@ import { withRouter } from "react-router-dom";
 import { Icon } from "antd"
 import Item from 'antd/lib/list/Item';
 import BackIcon from "../../component/back"
-
 @inject('home')
 @observer
-class liuyan extends Component {
+class liuyana extends Component {
 render() {
-console.log()
+console.log(this.props.home)
 let data = this.props.history.location.pathname.substr(13)
 return (
   <div className="asd">
-     <p>
+     <h4>
         <span><BackIcon /></span>
         <b>更多评价</b>
-      </p>
+      </h4>
       <div className="allliyan">
     {
 this.props.home&&this.props.home.estimatedata.map(ite=>{
@@ -30,14 +29,14 @@ this.props.home&&this.props.home.estimatedata.map(ite=>{
                   }
   </div>
   </div>
- 
 )
 }
 componentDidMount() {
-const id = this.props.history.location.pathname.substr(13)
+const id = this.props.history.location.pathname.substr(9)
+console.log(id)
 this.props.home.gethomeData()
 this.props.home.messageData(id)
 
 }
 }
-export default (withRouter(liuyan))
+export default (withRouter(liuyana))

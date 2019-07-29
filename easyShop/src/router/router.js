@@ -48,6 +48,10 @@ const Goods=Loadable({
   loading: Loading,
   loader: () => import("../viewser/goods/goods")
 });
+const Liuan=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/liuyan/index")
+});
 export default [
   {
     path: "/login",
@@ -59,6 +63,11 @@ export default [
     name: "首页",
     isTab: true,
     icon: "bank"
+  },
+  {
+    // name: "留言",
+    path: "/comment/:id",
+    component: Liuan
   },
   {
     // name: "专题详情",
