@@ -10,14 +10,6 @@ class Home extends React.Component{
 		return(
 		   <><Route/></>
 		)
-		{/*
-		   console.log('props...', this.props, this.props.home.changeCount);
-		   return <div>
-		   	<button onClick={()=>this.props.home.changeCount('+')}>+</button>
-		   	<span>{this.props.home.count}</span>
-		   	<button onClick={()=>this.props.home.changeCount('-')}>-</button>
-		   </div>
-		*/}
 	}
 }
 

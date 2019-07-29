@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {fica,ficaImg,details,search,keyword,category} from '../../servies/fication';
+import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId} from '../../servies/fication';
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -8,7 +8,9 @@ import {fica,ficaImg,details,search,keyword,category} from '../../servies/ficati
 	@observable searchs=[]
 	@observable vague=[]
 	@observable gory=[]
-
+	@observable categoList=[]
+	@observable related=[]
+	@observable detailsList=[]
     @action getData(){
        fica().then((res)=>{
 		    this.data=res.data.categoryList
@@ -22,7 +24,7 @@ import {fica,ficaImg,details,search,keyword,category} from '../../servies/ficati
 		//详情
 		@action detas(id){
 				details(id).then((res)=>{
-			    console.log(res.data)
+			    this.detailsList=res.data
 			})
 		}
 		//热搜
@@ -41,6 +43,17 @@ import {fica,ficaImg,details,search,keyword,category} from '../../servies/ficati
 		@action goodsCat(parmas){
 				category(parmas).then((res)=>{
 					this.gory=res.data
+			})
+		}
+		@action catego(parmas){
+				categoryId(parmas).then((res)=>{
+					this.categoList=res.data
+			})
+		}
+		//点击分类下的数据跳转页面
+		@action relate(parmas){
+				relatedId(parmas).then((res)=>{
+					this.categoList=res.data
 			})
 		}
 }
