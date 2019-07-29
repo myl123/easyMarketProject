@@ -32,6 +32,23 @@ class Goods extends Component {
 				   		<span>满88元免邮费</span>
 				   	</li>
 				   </ul>
+				   <div className="goodsMsgWrap">
+				      <ul>
+					     <li>Carat钻石 不粘厨具组合</li>
+						 <li>钻石涂层，不粘锅锅具组</li>
+						 <li>￥ 459</li>
+						 <li> 
+						    <span>× 0</span>
+							<span>选择规格 <em>&gt;</em></span>
+						 </li>
+                      </ul>
+				   </div>
+				 <div className="goodsAttribute">
+				   ———— 商品参数 ————
+				 </div>
+				 <div className="goodsAttribute">
+				    
+				 </div>
 				</div>
             </div> 
         )
