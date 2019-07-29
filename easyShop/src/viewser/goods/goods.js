@@ -61,7 +61,33 @@ return (
   })
 }
   {/* 评价 */}
+<div className="evaluate">  
+{
+  this.props.home && this.props.home.commentdata.map(item => {
+    return <div key={item.count} className="pja">
+      <div className="pj">
+      <b>评价{item.count}</b>
+      <span>查看全部<Icon type="right" /></span>
+      </div>
+      <div className="pjNr">
+        {/* <p>{item.data}</p> */}
+      </div>
+     
+    </div>
+  })
+}
+</div>
   {/* 商品参数 */}
+  <div className="commodity">
+    <b>--商品参数--</b>
+    {
+  this.props.home && this.props.home.attributedata.map((item,index) => {
+    return <div key={index} className="goodscs">
+<p>{item.value}</p>
+    </div>
+  })
+}
+  </div>
   {/* 图片展示 */}
   </div>
 )

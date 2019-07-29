@@ -13,6 +13,8 @@ export default class Home{
 
     @observable gallerydata=[]
     @observable infodata=[]
+    @observable commentdata=[]
+    @observable attributedata=[]
 
     @action gethomeData(){
         homeData().then((res)=>{
@@ -32,6 +34,8 @@ export default class Home{
             console.log(res.data)
             this.gallerydata=res.data.gallery
             this.infodata.push(res.data.info)
+            this.commentdata.push(res.data.comment)
+            this.attributedata=res.data.attribute
         })
     }
     
