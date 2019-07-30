@@ -238,6 +238,10 @@ class Goodst extends Component {
 				ction:1
 			})
 		}
+		//本地储存
+		 let typeId=JSON.parse(localStorage.getItem('typeId'))||[];
+		 typeId.push(ction)
+		 localStorage.setItem('typeId',JSON.stringify(typeId))
 		this.props.fication.addordeletes({typeId:id,valueId:ction})
 	}
 }

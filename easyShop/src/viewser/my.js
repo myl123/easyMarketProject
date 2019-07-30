@@ -4,11 +4,13 @@ import { inject, observer } from 'mobx-react';
 import "../sass/my.scss"
 import '../font/demo.css';
 import '../font/iconfont.css';
+import {getToken} from '../utils/index'
 @inject('login')
+@inject('fication')
 @observer
 class My extends Component {
     render() {
-			console.log(this.props)
+		      
         return (
             <div className="wrap">
             	<div className="header">
@@ -30,10 +32,11 @@ class My extends Component {
 						
 					
 					<div className="myBottom">
-						<ul>
-						
+						<ul onClick={()=>{
+							   this.ction(JSON.parse(localStorage.getItem('typeId')))
+						}}>
 						   <li className="icon iconfont icon-shoucang"></li>
-						   <li>我的收藏</li>
+						   <li onCli>我的收藏</li>
 						</ul>
 						<ul>
 							<li className="icon iconfont icon-dizhiguanli"></li>
@@ -89,5 +92,15 @@ class My extends Component {
 		phone(phon){
 			 return <div>{phon[0]}</div>
 		}
+		ction(typeId){
+			 typeId.map((item,index)=>{
+					if(item===0){
+						 this.props.fication.lists({typeId:item})
+					}else{
+						return
+					}
+			 })
+		}
+	
 }
 export default  My

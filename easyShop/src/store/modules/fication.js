@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete} from '../../servies/fication';
+import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list} from '../../servies/fication';
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -13,6 +13,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 	@observable detailsList=[]
 	@observable goodscountList=[]
 	@observable addordeleteList=[]
+	@observable listList=[]
     @action getData(){
        fica().then((res)=>{
 		    this.data=res.data.categoryList
@@ -61,7 +62,6 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		//点击加入购物车
 		@action goodscounts(){
 				goodscount().then((res)=>{
-					console.log(res)
 					this.goodscountList=res.data
 			})
 		}
@@ -71,6 +71,13 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 					this.addordeleteList=res.data
 			})
 		}
-		
+		//我的页面获取到typeId
+		@action lists(params){
+				list(params.typeId).then((res)=>{
+					console.log(params,'0或1收藏')
+					console.log(res,'params')
+					this.listList=res.data
+			})
+		}
 }
 export default Fication
