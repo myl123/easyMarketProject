@@ -65,9 +65,7 @@ export function goodscount(){
   })
 }
 //收藏
-export function addordelete(){
-  return request({
-      url:'/api/collect/addordelete',
-      method:"POST",
-  })
-}
+export function addordelete(params){
+	console.log(params,'收藏')
+		return request.post('/api/collect/addordelete',params)
+	}

@@ -64,6 +64,10 @@ changePass(e){
 }
 
 submit(phone,pwd){
+	//本地储存
+	let net=JSON.parse(localStorage.getItem('phone'))||[];
+	 net.push(phone)
+	 localStorage.setItem('phone',JSON.stringify(net))
   console.log(phone,pwd)
   this.props.login.getLogin({mobile:phone,password:pwd})
   console.log(this.props.login)

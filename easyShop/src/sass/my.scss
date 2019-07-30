@@ -36,7 +36,7 @@
 	width:100%;
 	height:auto;
 	flex:1;
-	.myBottomBox{
+	overflow-y: auto;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -46,11 +46,27 @@
 			height: 2.5rem;
 			background: #fff;
 			border: .5px solid #dcdcdc;
+			display:flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			li:first-of-type{
+				display: block;
+				padding-bottom: .2rem;
+				text-align: center;
+				font-size: .6rem;
+			}
+			li:last-of-type{
+				 text-align: center;
+         font-size: .3rem;
+			}
 		}
-	}
-}
-button{
-	width:100%;
-	height:1rem;
-	border:.01rem solid #ccc;
+		ul:first-of-type,ul:nth-of-type(2){
+				color:rgb(33, 150, 243)
+		}
+		button{
+			width:100%;
+			height:1rem;
+			border:.01rem solid #ccc;
+		}
 }

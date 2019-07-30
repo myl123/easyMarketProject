@@ -66,8 +66,8 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 			})
 		}
 		//收藏(没写)
-		@action addordeletes(){
-				addordelete().then((res)=>{
+		@action addordeletes(params){
+				addordelete(params).then((res)=>{
 					this.addordeleteList=res.data
 			})
 		}
