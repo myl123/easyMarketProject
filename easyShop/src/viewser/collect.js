@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import Nav from '../component/nav';
+import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 import {inject, observer} from 'mobx-react';
 import '../sass/collect.scss';
 @inject('fication')
 @observer
 class Collect extends Component {
     render() {
-		console.log(this.props.fication)
+			let typeId=this.props.location.pathname.substr(9)
+	    this.props.fication.lists({typeId:typeId})
 
+       console.log(this.props)
         return (
             <div className="wrap">
             	<Nav title="easyLikeGoods"/>
@@ -27,4 +30,4 @@ class Collect extends Component {
         )
     }
 }
-export default  Collect
+export default (withRouter(Collect))

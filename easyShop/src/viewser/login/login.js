@@ -69,6 +69,9 @@ submit=()=>{
   console.log(phone,pwd)
   this.props.login.getLogin(phone,pwd)
   console.log(this.props.login)
+	 let net=JSON.parse(localStorage.getItem('phone'))||[];
+ net.push(phone)
+ localStorage.setItem('phone',JSON.stringify(net))
   if(this.props.login.loginUser==0){
     this.props.history.push('/home')
   }else if(this.props.login.loginUser==10){

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 import Footer from '../component/footer';
 import { inject, observer } from 'mobx-react';
 import "../sass/my.scss"
@@ -10,7 +11,7 @@ import {getToken} from '../utils/index'
 @observer
 class My extends Component {
     render() {
-		      
+		      let {history}=this.props;
         return (
             <div className="wrap">
             	<div className="header">
@@ -21,11 +22,7 @@ class My extends Component {
 						   {
 								 this.phone(JSON.parse(localStorage.getItem('phone')))
 							 }
-							 {/*
-							   JSON.parse(localStorage.getItem('phone')).map((item,index)=>{
-							   	return <div>{item}</div>
-							   })
-							 */}
+							 
 							<div>普通用户</div> 
 						</div>
 					 </div>
@@ -33,10 +30,10 @@ class My extends Component {
 					
 					<div className="myBottom">
 						<ul onClick={()=>{
-							   this.ction(JSON.parse(localStorage.getItem('typeId')))
+							   this.ction(JSON.parse(localStorage.getItem('typeId')),history)
 						}}>
 						   <li className="icon iconfont icon-shoucang"></li>
-						   <li onCli>我的收藏</li>
+						   <li>我的收藏</li>
 						</ul>
 						<ul>
 							<li className="icon iconfont icon-dizhiguanli"></li>
@@ -92,10 +89,10 @@ class My extends Component {
 		phone(phon){
 			 return <div>{phon[0]}</div>
 		}
-		ction(typeId){
+		ction(typeId,history){
 			 typeId.map((item,index)=>{
-					if(item===0){
-						 this.props.fication.lists({typeId:item})
+          if(item===0){
+						 history.push(`/collect/${item}`)
 					}else{
 						return
 					}
@@ -103,4 +100,4 @@ class My extends Component {
 		}
 	
 }
-export default  My
+export default (withRouter(My))

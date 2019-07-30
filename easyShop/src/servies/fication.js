@@ -66,11 +66,11 @@ export function goodscount(){
 }
 //收藏
 export function addordelete(params){
-	console.log(params,'收藏')
 		return request.post('/api/collect/addordelete',params)
 }
-//我的页面获取到typeId
+//我的页面获取到typeId//获取不到
 export function list(params){
+	console.log(params,'params')
   return request({
       url:`/api/collect/list?typeId=${params.typeId}&size=1000`,
       method:"GET",
