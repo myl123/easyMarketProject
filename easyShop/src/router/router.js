@@ -60,7 +60,10 @@ const Categorysc=Loadable({
   loading: Loading,
   loader: () => import("../viewser/categorysc")
 });
-
+const TopicCommentWrite=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/addMessage/addMessage")
+});
 export default [
   {
     path: "/login",
@@ -82,6 +85,11 @@ export default [
     // name: "专题详情",
     path: "/topicDetail/:id",
     component: TopicDetail
+  },
+  {
+    // name: "添加留言",
+    path: "/topicCommentWrite/:id",
+    component: TopicCommentWrite
   },
   {
     // name: '制造商详情',
