@@ -38,6 +38,12 @@
 | :------------------: | :-------------------------: | :---------------------: | :------------------: |
 | ![](./imgs/cart.png) | ![](./imgs/goodsDetail.png) | ![](./imgs/comment.png) | ![](./imgs/mine.png) |
 
+
+
+<figure class="third">
+    <img src="./imgs/EasyMarket.gif" width="320"/>
+</figure>
+
 ------
 
 ##目录简介
