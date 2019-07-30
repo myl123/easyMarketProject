@@ -9,7 +9,7 @@ export default class Login{
         let data=await loginData({mobile:phone,password:pwd})
         console.log(data)
         if (data.errno == 0) {
-            cookie.save("token",data.data.sessionKey)
+            cookie.save("sessionKey",data.data.sessionKey)
             this.loginUser = data.errno;
         } else {
             this.loginUser = 10;
