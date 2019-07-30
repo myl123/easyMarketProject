@@ -7,7 +7,6 @@ export default class Login{
 
     @action  getLogin(params){
         console.log(params)
-        // cookie.save("token",params)
         let data=({mobile:params.mobile,password:params.password})
         console.log(data)
         loginData(params).then((res)=>{
@@ -15,6 +14,7 @@ export default class Login{
             console.log(res.errno)
             if(res.errno===0){
                 let cookiesdata=res.data.sessionKey
+                // cookie存储
                 console.log(cookiesdata)
                 cookie.save("token",cookiesdata)
                 this.loginUser = data.errno;
