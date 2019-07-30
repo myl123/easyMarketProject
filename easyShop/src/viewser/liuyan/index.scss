@@ -5,11 +5,14 @@
     overflow-y:scroll; 
     font-size: .4rem;
     h4{
+        width:100%;
         height:1rem;
         line-height: 1rem;
         display: flex;
         font-size: .3rem;
+        background: #fff;
         border-bottom:.01rem solid #ccc;
+        position: fixed;
         span{
             margin-left: .2rem;
             flex:3;
