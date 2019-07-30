@@ -63,22 +63,22 @@ changePass(e){
 });
 }
 
-submit(phone,pwd){
-	//本地储存
-	let net=JSON.parse(localStorage.getItem('phone'))||[];
-	 net.push(phone)
-	 localStorage.setItem('phone',JSON.stringify(net))
+submit=()=>{
+  let { phone, pwd } = this.state;
+
   console.log(phone,pwd)
-  this.props.login.getLogin({mobile:phone,password:pwd})
+  this.props.login.getLogin(phone,pwd)
   console.log(this.props.login)
-  if(this.props.login.loginMobile!==""&&this.props.login.loginPassword!==""){
-    // alert("登陆")
-     this.props.history.push('/home')
-  }else{
-    // alert("您的用户名或密码没有输入")
-    return
+  if(this.props.login.loginUser==0){
+    this.props.history.push('/home')
+  }else if(this.props.login.loginUser==10){
+    alert("有误")
   }
-  // this.props.history.push('/home')
+  this.setState({
+    phone: '',
+    pwd: ''
+})
+
 }
 
 }
