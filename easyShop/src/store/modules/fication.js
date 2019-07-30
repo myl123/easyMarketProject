@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId} from '../../servies/fication';
+import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount} from '../../servies/fication';
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -11,6 +11,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId} from 
 	@observable categoList=[]
 	@observable related=[]
 	@observable detailsList=[]
+	@observable goodscountList=[]
     @action getData(){
        fica().then((res)=>{
 		    this.data=res.data.categoryList
@@ -54,6 +55,13 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId} from 
 		@action relate(parmas){
 				relatedId(parmas).then((res)=>{
 					this.categoList=res.data
+			})
+		}
+		//点击加入购物车
+		@action goodscounts(){
+				goodscount().then((res)=>{
+					console.log(res)
+					this.goodscountList=res.data
 			})
 		}
 }

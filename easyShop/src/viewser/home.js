@@ -16,7 +16,7 @@ import Special from "../component/special/special"
 class Home extends Component {
 
 render() {
-console.log(this.props.home)
+// console.log(this.props.home)
 return (
 <div className="wrap">
     <div className="header">

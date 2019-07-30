@@ -48,10 +48,19 @@ const Goods=Loadable({
   loading: Loading,
   loader: () => import("../viewser/goods/goods")
 });
+const Goodst=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/goodst")
+});
 const Liuan=Loadable({
   loading: Loading,
   loader: () => import("../viewser/liuyan/index")
 });
+const Categorysc=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/categorysc")
+});
+
 export default [
   {
     path: "/login",
@@ -113,6 +122,12 @@ export default [
   }, {
     path: "/categorys",
     component: Categorys,
+  },{
+    path: "/categorysc",
+    component:Categorysc
+  },{
+    path: "/goodst",
+    component:Goodst
   },{
     redirect: "/",
     path: "/home"
