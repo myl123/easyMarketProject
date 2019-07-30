@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Footer from '../component/footer'
 import "../sass/my.scss"
 import '../font/demo.css';
-import '../font/iconfont.css'
+import '../font/iconfont.css';
 class My extends Component {
     render() {
         return (
