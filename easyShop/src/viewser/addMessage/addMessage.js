@@ -40,6 +40,8 @@ class addMessage extends Component {
       </div>
     )
   }
+//   管控留言板的次数
+
   inputChange(e){
 	let values=e.target.value.length;
     // console.log(values)
