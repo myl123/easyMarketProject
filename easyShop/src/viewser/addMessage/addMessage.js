@@ -23,6 +23,7 @@ class addMessage extends Component {
                   <span><BackIcon/></span>
                   <b>填写留言</b>
                 </p>
+                {/* 留言板 */}
                 <div className="messageBox">
                   <textarea 
                   minLength="1" 
@@ -31,8 +32,6 @@ class addMessage extends Component {
                   rows="10"
                   onChange={(e)=>this.inputChange(e)}
                   >
-
-
                   </textarea>
                   <span>{this.state.values}/80</span> 
                   <button>留言</button>
