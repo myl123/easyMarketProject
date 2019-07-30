@@ -6,6 +6,7 @@ import "../sass/footer/footer.scss"
 class Footer extends Component {
     render() {
         return (
+				{/*底部*/}
             <ol className="footer">
                 {
 					router.map((item,index)=>{
