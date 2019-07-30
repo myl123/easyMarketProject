@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Footer from '../component/footer';
 import Nav from '../component/nav';
+import Returns from '../component/returns'
 import {inject, observer} from 'mobx-react';
 import * as Swiper from 'swiper/dist/js/swiper.js';
 import "swiper/dist/css/swiper.min.css"
@@ -10,7 +11,6 @@ import Good from '../component/good'
 import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 import { Drawer, Button,Icon} from 'antd';
 import { Rate } from 'antd';
-
 @inject('fication')
 @observer
 class Goodst extends Component {
@@ -39,13 +39,14 @@ class Goodst extends Component {
     });
   };
 	state={
-		cont:0
+		cont:0,
+		bool:false
 	}
     render() {
 	  let {issue}=this.props.fication.detailsList
 		let {name}=this.props.location.state;
 		let {id}=this.props.location.id||[];
-		let {cont}=this.state;
+		let {cont,bool}=this.state;
 		let {goods_brief,retail_price}=this.props.fication.detailsList.length!=0&&this.props.fication.detailsList.info
 		return (
      <div className="wrap">
@@ -64,20 +65,7 @@ class Goodst extends Component {
 									 <div className='swiper-pagination'></div>
 						</div>
 				   </div>
-				   <ul>
-				   	<li>
-				   		<span>★</span>
-				   		<span>30天无忧退货</span>
-				   	</li>
-				   	<li>
-				   		<span>★</span>
-				   		<span>48小时快速退款</span>
-				   	</li>
-				   	<li>
-				   		<span>★</span>
-				   		<span>满88元免邮费</span>
-				   	</li>
-				   </ul>
+				   <Returns/>
 				   <div className="goodsMsgWrap">
 				      <ul>
 								 <li>{name}</li>
@@ -183,7 +171,13 @@ class Goodst extends Component {
 				 </div>
 				</div>
 				<ol className="foot">
-				   <li>
+				   <li onClick={()=>{
+						  this.setState({
+								bool:!bool
+							})
+					 }} style={{
+						  color:bool===true?'yellow':'#000'
+					 }}>
 					    ☆
 					 </li>
 					 <li><Icon type="shopping-cart" /><em>{this.state.cont}</em></li>

@@ -4,7 +4,11 @@ import {message} from 'antd';
 
 // create an axios instance
 const service = axios.create({
+<<<<<<< HEAD
   baseURL: 'http://169.254.64.73:8888',
+=======
+  baseURL: 'http://169.254.12.70:8888',
+>>>>>>> mengyali
   // withCredentials: true, // 跨域请求时发送 cookies
   timeout: 5000 // request timeout
 })

@@ -64,3 +64,10 @@ export function goodscount(){
       method:"GET",
   })
 }
+//收藏
+export function addordelete(){
+  return request({
+      url:'/api/collect/addordelete',
+      method:"POST",
+  })
+}
