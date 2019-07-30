@@ -19,7 +19,7 @@ class Footer extends Component {
                 {
                     this.props.home && this.props.home.channeldata.map(item => (
                         <li key={item.id}>
-                            <NavLink to={item.url} key={item.id}>
+                            <NavLink to={`/categorysc/${item.id}`} key={item.id}>
                                 <dl>
                                     <dt><img src={item.icon_url} alt="" className="iconStyle" /></dt>
                                     <dd>{item.name}</dd>

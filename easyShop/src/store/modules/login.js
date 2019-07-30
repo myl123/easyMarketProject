@@ -5,25 +5,15 @@ export default class Login{
     // @action 修饰方法
     @observable loginUser=''
 
-    @action  getLogin(params){
-        console.log(params)
-        let data=({mobile:params.mobile,password:params.password})
+    @action  async getLogin(phone,pwd){
+        let data=await loginData({mobile:phone,password:pwd})
         console.log(data)
-        loginData(params).then((res)=>{
-            // this.loginUser=data
-            console.log(res.errno)
-            if(res.errno===0){
-                let cookiesdata=res.data.sessionKey
-                // cookie存储
-                console.log(cookiesdata)
-                cookie.save("token",cookiesdata)
-                this.loginUser = data.errno;
-
-            }else{
-                this.loginUser = 1;
-
-            }
-        })
+        if (data.errno == 0) {
+            cookie.save("token",data.data.sessionKey)
+            this.loginUser = data.errno;
+        } else {
+            this.loginUser = 10;
+        }
 }
     
 }

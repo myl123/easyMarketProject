@@ -12,7 +12,7 @@ import { BrowserRouter as NavLink, Link } from "react-router-dom";
 @observer
 class topicDetail extends Component {
 render() {
-  console.log()
+  console.log(this.props.home)
   let data = this.props.history.location.pathname.substr(13)
 return (
   <div className="topicDetail">
@@ -37,7 +37,28 @@ return (
                 <div className="tz">
               <div 
               onClick={()=>this.props.history.push(`/comment/${item.id}`)}
-                  >查看更多评论
+                  className="gd">查看更多评论
+              </div>
+              <div className="recommend">
+                  <b>推荐专题</b>
+                  <div className="specialTopas">
+                        {
+                            this.props.home && this.props.home.topicListdata.map(item => (
+                                //  console.log(item)
+                                <div className="contents" key={item.id}>
+ <NavLink to={`/topicDetail/${item.id}`} key={item.id}>
+                                    <img src={item.item_pic_url} alt="" className="im"/>
+                                    <div className="wz">
+                                        <h6>{item.title}</h6>
+                                        <b>{item.subtitle}</b>
+                                    </div>
+                                </NavLink>
+                                </div>
+                               
+
+                            ))
+                        }
+                    </div>
               </div>
             </div>
             </div>
@@ -55,6 +76,7 @@ componentDidMount() {
   const id = this.props.history.location.pathname.substr(13)
   this.props.home.gethomeData()
   this.props.home.messageData(id)
+  
 
 }
 }

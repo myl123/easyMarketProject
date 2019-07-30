@@ -130,6 +130,6 @@ export default [
     component:Goodst
   },{
     redirect: "/",
-    path: "/home"
+    path: "/login"
   }
 ];

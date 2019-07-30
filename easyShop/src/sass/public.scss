@@ -23,3 +23,20 @@
 		align-items: center;
 		color: #2196f3;
 	}
+#return_good{
+			display:flex;
+			justify-content: space-around;
+			align-items: center;
+			margin-bottom: 0 !important; 
+			li{
+				display:flex;
+				span{
+					font-size:.23rem;
+					padding:.2rem 0;
+				}
+				span:first-of-type{
+					color:red;
+					margin-right: .2rem;
+				}
+			}
+		}
