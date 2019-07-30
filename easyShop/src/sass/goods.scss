@@ -107,8 +107,9 @@
   }
 }
 button{
-	width: 50%;
+	   width: 50%;
     color: #fff;
+		height: 1.2rem;
     line-height: 1rem;
 }
 button:first-of-type{
@@ -148,22 +149,7 @@ button:last-of-type{
 				height:100%;
 			}
 		}
-		>ul{
-			display:flex;
-			justify-content: space-around;
-			align-items: center;
-			li{
-				display:flex;
-				span{
-					font-size:.23rem;
-					padding:.2rem 0;
-				}
-				span:first-of-type{
-					color:red;
-					margin-right: .2rem;
-				}
-			}
-		}
+		
 		.goodsMsgWrap{
 			padding: .4rem .4rem 0 .4rem;
 			background: #fff;

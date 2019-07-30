@@ -1,0 +1,56 @@
+.wrap{
+	width:100%;
+	height: 100%;
+	overflow-y:scroll ;
+}
+.myTop{
+	height: 3rem;
+    background: url(http://yanxuan.nosdn.127.net/d069279e5834bbca17065a9855a014bf.png) no-repeat;
+    background-size: 100%;
+    padding: .7rem .4rem;
+    display: -webkit-flex;
+    display: flex;
+	.userLogo{
+		width: 1.6rem;
+	    background: url(http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png) no-repeat;
+	    background-size: 100%;
+	    border-radius: 50%;
+	}
+	.userMsgs{
+		flex: 1 1;
+	    padding-left: .2rem;
+	    height: 100%;
+		div{
+			height: 50%;
+			font-size:.28rem;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-align-items: center;
+			align-items: center;
+			color: #fff;
+		}
+	}
+}
+
+.myBottom{
+	width:100%;
+	height:auto;
+	flex:1;
+	.myBottomBox{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		ul{
+			width: 33.333%;
+			height: 2.5rem;
+			background: #fff;
+			border: .5px solid #dcdcdc;
+		}
+	}
+}
+button{
+	width:100%;
+	height:1rem;
+	border:.01rem solid #ccc;
+}

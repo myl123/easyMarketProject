@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount} from '../../servies/fication';
+import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete} from '../../servies/fication';
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -12,6 +12,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 	@observable related=[]
 	@observable detailsList=[]
 	@observable goodscountList=[]
+	@observable addordeleteList=[]
     @action getData(){
        fica().then((res)=>{
 		    this.data=res.data.categoryList
@@ -64,5 +65,12 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 					this.goodscountList=res.data
 			})
 		}
+		//收藏(没写)
+		@action addordeletes(){
+				addordelete().then((res)=>{
+					this.addordeleteList=res.data
+			})
+		}
+		
 }
 export default Fication
