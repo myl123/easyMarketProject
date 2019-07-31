@@ -92,6 +92,7 @@ class My extends Component {
 		phone(phon){
 			 return <div>{phon[0]}</div>
 		}
+		// haha 
 		ction(typeId){
 			console.log(typeId)
 			 typeId.map((item,index)=>{
