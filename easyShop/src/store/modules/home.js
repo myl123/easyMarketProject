@@ -24,8 +24,8 @@ export default class Home{
 
     @observable topicSpecialdata=[]
 
-    @action gethomeData(){
-        homeData().then((res)=>{
+    @action async gethomeData(){
+        let res=await homeData()
          console.log(res.data)
         this.bannerdata=res.data.banner
         this.channeldata=res.data.channel
@@ -34,38 +34,36 @@ export default class Home{
         this.hotGoodsListdata=res.data.hotGoodsList
         this.topicListdata=res.data.topicList
         this.categoryListdata=res.data.categoryList
-	   })
+	   
     }
 
-    @action getdetailData(id){
-        detailData(id).then((res)=>{
+    @action async getdetailData(id){
+        let res=await detailData(id)
             console.log(res.data)
             this.gallerydata=res.data.gallery
             this.infodata.push(res.data.info)
             this.commentdata.push(res.data.comment)
             this.attributedata=res.data.attribute
-        })
+       
     }
 
-    @action topicData(params){
-        topicData(params).then((res)=>{
+    @action async topicData(params){
+        let res=await topicData(params)
             // console.log(res.data)
             this.topicdata=res.data.data
-        })
     }
 
-    @action messageData(params){
-        messageData(params).then((res)=>{
+    @action async messageData(params){
+        let res=await messageData(params)
             // console.log(res.data)
             this.estimatedata=res.data.data
-        })
     }
 
-    @action topicSpecialData(params){
-        topicSpecialData(params).then((res)=>{
+    @action async topicSpecialData(params){
+        let res=await topicSpecialData(params)
             console.log(res.data)
             this.topicSpecialdata.push(res.data)
-        })
+       
     }
 
     @action async addMessageData(content,typeId,valueId){
