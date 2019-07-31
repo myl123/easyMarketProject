@@ -35,21 +35,15 @@ class addMessage extends Component {
                   onChange={(e)=>this.inputChange(e)}
                   >
                   </textarea>
-<<<<<<< HEAD
                   <span>{this.state.content.length}/80</span> 
                   <button onClick={
                     ()=>this.clickTj()
                   }>留言</button>
-=======
-                  <span>{this.state.values}/80</span> 
-                  <button>留言</button>
->>>>>>> houfaxing
                 </div>
               </div>
       </div>
     )
   }
-<<<<<<< HEAD
   clickTj=()=>{
     let {
       content,typeId,valueId
@@ -74,21 +68,5 @@ class addMessage extends Component {
     })
    
 }
-=======
-//   管控留言板的次数
-
-  inputChange(e){
-	let values=e.target.value.length;
-    // console.log(values)
-    this.setState({
-        values:values
-    })
-
-}
-  componentDidMount() {
-    this.props.home.gethomeData()
-
-  }
->>>>>>> houfaxing
 }
 export default (withRouter(addMessage))

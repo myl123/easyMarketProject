@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list,shop,shopping} from '../../servies/fication';
+import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list,shop,shopping,add} from '../../servies/fication';
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -17,6 +17,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 	@observable listList=[]
 	@observable shopList=[]
 	@observable shoppingList=[]
+	@observable addList=[]
     @action async getData(){
 			let deta=await fica();
       this.data=deta.data.categoryList
@@ -54,11 +55,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		//点击分类下的数据跳转页面
 		@action async relate(parmas){
 			let deta=await relatedId(parmas)
-<<<<<<< HEAD
-			deta.categoList=deta.data
-=======
 			this.categoLists=deta.data
->>>>>>> houfaxing
 		}
 		//点击加入购物车
 		@action async goodscounts(){
@@ -72,24 +69,22 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		}
 		//我的页面获取到typeId
 		@action async lists(params){
-<<<<<<< HEAD
-			let deta=await list(params.typeId)
-			this.listList=deta.data
-=======
 			let deta=await list(params)
 			this.listList=deta.data
 		}
 		//加减点击购物车
 		@action async shops(){
 			let deta=await shop()
-			console.log(deta)
 			this.shopList=deta.data
 		}
 		// 点击购物车跳转购物车
 		@action async shoppings(){
 			let deta=await shopping()
 			this.shoppingList=deta.data
->>>>>>> houfaxing
 		}
+		// @action async adds(){
+		// 	let deta=await add()
+		// 	this.addList=deta.data
+		// }
 }
 export default Fication

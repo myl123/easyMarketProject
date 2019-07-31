@@ -94,16 +94,7 @@ class My extends Component {
 		phone(phon){
 			 return <div>{phon[0]}</div>
 		}
-		ction(typeId){
-			console.log(typeId)
-			 typeId.map((item,index)=>{
-					if(item===1){
-						 this.props.fication.lists({typeId:item})
-					}else{
-						return
-					}
-			 })
-		}
+
 	
 }
 export default (withRouter(My)) 
