@@ -14,7 +14,7 @@ class Shop extends Component {
 	}
     render() {
 			const number=this.props.location.pathname.substr(6)//数量
-			let {check}=this.state
+			let {check,edit}=this.state
         return (
             <div className="wrap">
             	<div className="header">
@@ -52,7 +52,9 @@ class Shop extends Component {
 										 <div className="cartMsgAll">
 												已选(0) $49
 										 </div>
-										 <span className="cartAllDoButton">编辑</span>
+										 <span className="cartAllDoButton" onClick={()=>{
+											  console.log('edit')
+										 }}>编辑</span>
 										 <span className="cartAllDoButton_play">下单</span>
 									 </div>
 							</div>
