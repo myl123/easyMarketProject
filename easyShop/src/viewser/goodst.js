@@ -40,13 +40,14 @@ class Goodst extends Component {
   };
 	state={
 		cont:0,
-		bool:false
+		bool:false,
+		ction:false
 	}
     render() {
 	  let {issue}=this.props.fication.detailsList
 		let {name}=this.props.location.state;
 		let {id}=this.props.location.id||[];
-		let {cont,bool}=this.state;
+		let {cont,bool,ction}=this.state;
 		let {goods_brief,retail_price}=this.props.fication.detailsList.length!=0&&this.props.fication.detailsList.info
 		return (
      <div className="wrap">
@@ -175,6 +176,7 @@ class Goodst extends Component {
 						  this.setState({
 								bool:!bool
 							})
+						 this.collection(bool,id,ction)
 					 }} style={{
 						  color:bool===true?'yellow':'#000'
 					 }}>
@@ -221,6 +223,26 @@ class Goodst extends Component {
 			  })
      
 		 }
+	}
+	//收藏
+	collection(bool,id,ction){
+		if(bool===false){
+			 this.setState({
+				  ction:bool,
+					ction:0
+			 })
+			 
+		}else{
+			this.setState({
+				ction:bool,
+				ction:1
+			})
+		}
+		//本地储存
+		 let typeId=JSON.parse(localStorage.getItem('typeId'))||[];
+		 typeId.push(ction)
+		 localStorage.setItem('typeId',JSON.stringify(typeId))
+		this.props.fication.addordeletes({typeId:id,valueId:ction})
 	}
 }
 export default (withRouter(Goodst))

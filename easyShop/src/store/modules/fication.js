@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete} from '../../servies/fication';
+import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list} from '../../servies/fication';
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -13,64 +13,60 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 	@observable detailsList=[]
 	@observable goodscountList=[]
 	@observable addordeleteList=[]
-    @action getData(){
-       fica().then((res)=>{
-		    this.data=res.data.categoryList
-	   })
+	@observable listList=[]
+    @action async getData(){
+			let deta=await fica();
+      this.data=deta.data.categoryList
     }
-		@action current(id){
-				ficaImg(id).then((res)=>{
-				 this.currId=res.data.currentCategory;
-			})
+		@action async current(id){
+			  let deta= await ficaImg(id)
+				this.currId=deta.data.currentCategory;
 		}
 		//详情
-		@action detas(id){
-				details(id).then((res)=>{
-			    this.detailsList=res.data
-			})
+		@action async detas(id){
+		   let deta=await details(id)
+			 deta=deta.data
 		}
 		//热搜
-		@action sear(){
-				search().then((res)=>{
-					 this.searchs=res.data
-			})
+		@action async sear(){
+			let deta=await search()
+			this.searchs=deta.data
+
 		}
 		//模糊搜索
-		@action keywordVal(parmas){
-				keyword(parmas).then((res)=>{
-					this.vague=res.data
-			})
+		@action async keywordVal(parmas){
+			let deta=await keyword(parmas)
+			this.vague=deta.data
 		}
 		//分类下的内容
-		@action goodsCat(parmas){
+		@action async goodsCat(parmas){
 				category(parmas).then((res)=>{
 					this.gory=res.data
 			})
 		}
-		@action catego(parmas){
-				categoryId(parmas).then((res)=>{
-					this.categoList=res.data
-			})
+		@action async catego(parmas){
+			let deta=await categoryId(parmas)
+			this.categoList=deta.data
 		}
 		//点击分类下的数据跳转页面
-		@action relate(parmas){
-				relatedId(parmas).then((res)=>{
-					this.categoList=res.data
-			})
+		@action async relate(parmas){
+			let deta=await relatedId(parmas)
+			deta.categoList=deta.data
 		}
 		//点击加入购物车
-		@action goodscounts(){
-				goodscount().then((res)=>{
-					console.log(res)
-					this.goodscountList=res.data
-			})
+		@action async goodscounts(){
+			let deta=await goodscount()
+			this.goodscountList=deta.data
 		}
 		//收藏(没写)
-		@action addordeletes(){
-				addordelete().then((res)=>{
-					this.addordeleteList=res.data
-			})
+		@action async addordeletes(params){
+			let deta=await addordelete(params)
+			this.addordeleteList=deta.data
 		}
-		
+		//我的页面获取到typeId
+		@action async lists(params){
+			let deta=await list(params.typeId)
+			this.listList=deta.data
+		}
 }
 export default Fication

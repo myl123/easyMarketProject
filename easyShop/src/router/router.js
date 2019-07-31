@@ -60,6 +60,11 @@ const Categorysc=Loadable({
   loading: Loading,
   loader: () => import("../viewser/categorysc")
 });
+const Collect=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/collect")
+});
+
 const TopicCommentWrite=Loadable({
   loading: Loading,
   loader: () => import("../viewser/addMessage/addMessage")
@@ -137,6 +142,9 @@ export default [
     path: "/goodst",
     component:Goodst
   },{
+		path: "/collect",
+		component:Collect
+	},{
     redirect: "/",
     path: "/login"
   }

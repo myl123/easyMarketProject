@@ -65,9 +65,13 @@ export function goodscount(){
   })
 }
 //收藏
-export function addordelete(){
+export function addordelete(params){
+		return request.post('/api/collect/addordelete',params)
+}
+//我的页面获取到typeId
+export function list(params){
   return request({
-      url:'/api/collect/addordelete',
-      method:"POST",
+      url:`/api/collect/list?typeId=${params.typeId}&size=1000`,
+      method:"GET",
   })
 }

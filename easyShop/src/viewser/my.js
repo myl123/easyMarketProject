@@ -1,25 +1,40 @@
 import React, { Component } from 'react'
-import Footer from '../component/footer'
+import Footer from '../component/footer';
+import { inject, observer } from 'mobx-react';
 import "../sass/my.scss"
 import '../font/demo.css';
 import '../font/iconfont.css';
+import {getToken} from '../utils/index'
+@inject('login')
+@inject('fication')
+@observer
 class My extends Component {
     render() {
+		      
         return (
             <div className="wrap">
             	<div className="header">
 					<div className="myTop">
 					   <div className="userLogo"></div>
 						<div className="userMsgs">
-						    <div>15323807318</div> 
+						   {/*取值*/}
+						   {
+								 this.phone(JSON.parse(localStorage.getItem('phone')))
+							 }
+							 {/*
+							   JSON.parse(localStorage.getItem('phone')).map((item,index)=>{
+							   	return <div>{item}</div>
+							   })
+							 */}
 							<div>普通用户</div> 
 						</div>
 					 </div>
 						
 					
 					<div className="myBottom">
-						<ul>
-						
+						<ul onClick={()=>{
+							   this.ction(JSON.parse(localStorage.getItem('typeId')))
+						}}>
 						   <li className="icon iconfont icon-shoucang"></li>
 						   <li>我的收藏</li>
 						</ul>
@@ -67,13 +82,26 @@ class My extends Component {
 						    <li className="icon iconfont icon-zhuanru"></li>
 							<li>账户安全</li>
 						</ul>
-					</div>
-					<button>退出登录</button>
+						<button>退出登录</button>
+          </div>
 				</div>
-				
-            	<Footer/>
-            </div>
+				<Footer/>
+     </div>
         )
     }
+		phone(phon){
+			 return <div>{phon[0]}</div>
+		}
+		ction(typeId){
+			console.log(typeId)
+			 typeId.map((item,index)=>{
+					if(item===1){
+						 this.props.fication.lists({typeId:item})
+					}else{
+						return
+					}
+			 })
+		}
+	
 }
 export default  My

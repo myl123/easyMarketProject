@@ -1,13 +1,13 @@
 import Cookie from 'js-cookie';
 
-const key = 'authorization'
+const key = 'sessionKey'
 // 设置cookie, 过期时间为十个小时
 export function setToken(val) {
   let date = new Date();
   let expires = date.getTime() + 20 * 60 * 60 * 1000;
   date.setTime(expires);
-
-  Cookie.set(key, val, { expires: date })
+console.log(val)
+  Cookie.set( key,val, { expires: date })
 }
 
 // 读取cookie
