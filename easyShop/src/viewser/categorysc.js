@@ -15,6 +15,7 @@ class Categorysc extends Component {
 	}
     render() {
 		const id=this.props.location.pathname.substr(12);
+		console.log(id)
 		let {bool,itemId,arr,bole}=this.state;
 		let {history}=this.props;
         return (
@@ -23,11 +24,11 @@ class Categorysc extends Component {
 								<ol className="am-tabs">
 								   {
 								   	this.props.fication.gory.brotherCategory&&this.props.fication.gory.brotherCategory.map((item,index)=>{
-											 return <li key={item.id} onClick={()=>{
+											 return <li key={index} onClick={()=>{
 												 {/*点击的时候颜色的切换*/}
 												   this.addStyle(item.id,item,item.name,bool)
 													 this.props.fication.catego(item.id)
-                           this.setState({
+                           						this.setState({
 														 itemId:item.id
 													 })
 													 if(this.props.fication.categoList.length===0){
@@ -57,7 +58,6 @@ class Categorysc extends Component {
 								   		{
 								   			this.detil(id,history)
                       }
-										
 								   </div>
 								</div>
            </div>
@@ -77,14 +77,14 @@ class Categorysc extends Component {
 	 introduce(itemId,item,id,brotherCategory,arr){
 		 if(itemId===item.id){
 			  return <>
-				  <p key={item.id}>{item.name}</p>
-				  <p key={item.id}>{item.front_name}</p>
+				  <p>{item.name}</p>
+				  <p>{item.front_name}</p>
 				</>
 		 }else if(itemId===null){
        if(id==item.id){
 					return <>
-					   <p key={item.id}>{item.name}</p>
-						 <p key={item.id}>{item.front_name}</p>
+					   <p>{item.name}</p>
+						 <p>{item.front_name}</p>
 					</>
         }
 		  }
@@ -99,6 +99,7 @@ class Categorysc extends Component {
 			  	let name=item.name;
 					return <ol key={index} onClick={()=>{
 						 history.push({ pathname:'/goodst',state:{name : name },id:{id:item.id} })
+						 console.log(item.id,name)
 					}}>
 			  				<li><img src={item.list_pic_url}/></li>
 			  				<li>{item.name}</li>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Footer from '../component/footer'
 import { inject, observer } from 'mobx-react';
 import "../sass/special.scss"
+import {NavLink} from "react-router-dom"
 @inject('home')
 @observer
 class Special extends Component {
@@ -12,7 +13,7 @@ return (
     <div className="header">
         {
         this.props.home && this.props.home.topicdata.map(item => {
-            return <div key={item.id}>
+            return <NavLink key={item.id} to={`/topicDetail/${item.id}`}>
             <div className="topic">
                 <img src={item.scene_pic_url} alt="" />
                 <p>{item.title}</p>
@@ -20,7 +21,7 @@ return (
                 <p className="price">￥{item.price_info}</p>
             </div>
 
-            </div>
+            </NavLink>
         })
         }
     </div>
