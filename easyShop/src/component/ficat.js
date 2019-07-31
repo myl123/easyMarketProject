@@ -62,7 +62,7 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 								 key={ite.id}
 								 onClick={()=>{
 
-						  }}>
+						  }} key={ite.id}>
 								 		<span><img src={ite.list_pic_url}/></span>
 								 		<span>{item.name}</span>
 								 </li>

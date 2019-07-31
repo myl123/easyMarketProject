@@ -22,9 +22,8 @@ class Goodst extends Component {
   };
 
   onClose = () => {
-    
-		this.props.fication.goodscounts()
-		console.log(this.props.fication)
+    this.props.fication.goodscounts()
+		this.props.fication.shops()
   };
 
   showChildrenDrawer = () => {
@@ -40,7 +39,7 @@ class Goodst extends Component {
   };
 	state={
 		cont:0,
-		bool:false,
+		bool:true,
 		ction:false
 	}
     render() {
@@ -49,6 +48,7 @@ class Goodst extends Component {
 		let {id}=this.props.location.id||[];
 		let {cont,bool,ction}=this.state;
 		let {goods_brief,retail_price}=this.props.fication.detailsList.length!=0&&this.props.fication.detailsList.info
+		
 		return (
      <div className="wrap">
        	<Nav title={name}/>
@@ -182,7 +182,10 @@ class Goodst extends Component {
 					 }}>
 					    ☆
 					 </li>
-					 <li><Icon type="shopping-cart" /><em>{this.state.cont}</em></li>
+					 <li onClick={()=>{
+						 {/*点击购物车跳转页面*/}
+						   this.props.history.push(`/shop/${this.state.cont}`)
+					 }}><Icon type="shopping-cart" /><em>{this.state.cont}</em></li>
 					 <li>
 					    <button>加入购物车</button>
 							<button>立即购买</button>
@@ -241,8 +244,14 @@ class Goodst extends Component {
 		//本地储存
 		 let typeId=JSON.parse(localStorage.getItem('typeId'))||[];
 		 typeId.push(ction)
-		 localStorage.setItem('typeId',JSON.stringify(typeId))
-		this.props.fication.addordeletes({typeId:id,valueId:ction})
+		 // localStorage.setItem('typeId',JSON.stringify(typeId))
+		 if(ction===true||ction===false){
+			  return
+		 }else{
+			  this.props.fication.addordeletes({typeId:ction,valueId:id})
+        this.props.fication.lists({typeId:ction})
+
+		 }
 	}
 }
 export default (withRouter(Goodst))
