@@ -9,7 +9,9 @@ export default class Login{
 
     @action  async getLogin(phone,pwd){
         let data=await loginData({mobile:phone,password:pwd})
-        console.log(data)
+       let val=JSON.parse(localStorage.getItem('val'))||[];
+		   val.push(data.data.sessionKey)
+		   localStorage.setItem('val',JSON.stringify(val))
         if (data.errno == 0) {
             // cookie.save("sessionKey",data.data.sessionKey)
             this.loginUser = data.data;

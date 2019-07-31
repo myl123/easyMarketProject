@@ -19,15 +19,13 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 						 </span>
 						 {/* 分类*/}
 						 {this.tail(ficat,currentId)}
-						 <ol className="subCategory" key={currentId.id}>
+						 <ol className="subCategory">
 								{
 									this.goodFication(goods,ficat)
 								}
 								{
 									currentId.subCategoryList&&currentId.subCategoryList.map((item,index)=>{
-										return <li 
-										key={index}
-										onClick={()=>{
+										return <li onClick={()=>{
 
 											   this.props.history.push(`/categorysc/${item.id}`)
 											}}>
@@ -58,11 +56,9 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 				 return ficat.map((item,index)=>{
 				 	if(item.id===1005000){
 				 			return item.goodsList.map((ite,ind)=>{
-								 return <li  
-								 key={ite.id}
-								 onClick={()=>{
+								 return <li  onClick={()=>{
 
-						  }}>
+						  }} key={ite.id}>
 								 		<span><img src={ite.list_pic_url}/></span>
 								 		<span>{item.name}</span>
 								 </li>
