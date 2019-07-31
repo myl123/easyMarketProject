@@ -1,0 +1,48 @@
+*{
+    padding:0;
+    margin:0;
+}
+li{
+    list-style: none;
+}
+.message{
+    width:100%;
+    height:100%;
+    background: rgb(230, 227, 227);
+    font-size: .4rem;
+}
+.messagebrand{
+    width:100%;
+    height:8rem;
+    background: #fff;
+    p{
+        height:1rem;
+        line-height: 1rem;
+        display: flex;
+        span{
+            margin-left: .2rem;
+            flex:4;
+        }
+        b{
+            flex:6;
+        }
+    }
+    
+}
+.messageBox{
+    width:100%;
+    textarea{
+        width:100%;
+        height:3rem;
+        margin-top: .2rem;
+    }
+    button{
+        width:2rem;
+        height:.7rem;
+        background: rgb(65, 189, 238);
+        border:.01rem solid #ccc;
+        float: right;
+        font-size: .3rem;
+        color:#fff;
+    }
+}

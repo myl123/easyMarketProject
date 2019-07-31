@@ -10,10 +10,14 @@ export default class Login{
         console.log(data)
         if (data.errno == 0) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             cookie.save("sessionKey",data.data.sessionKey)
 =======
             cookie.save("token",data.data.sessionKey)
 >>>>>>> 5fd07e9a0068debcf86bfb9fbba8f9729f934013
+=======
+            cookie.save("sessionKey",data.data.sessionKey)
+>>>>>>> mengyali
             this.loginUser = data.errno;
         } else {
             this.loginUser = 10;

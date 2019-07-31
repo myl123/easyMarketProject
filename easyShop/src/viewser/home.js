@@ -58,7 +58,7 @@ return (
     <p>专题精选</p>
     <Special />
 </div>
-{/* 居家   以下所有 */}
+{/* 居家   以下所有数据 */}
 <div className="category">
 {
     this.props.home && this.props.home.categoryListdata.map(item => (
