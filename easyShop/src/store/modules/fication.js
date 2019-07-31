@@ -65,7 +65,12 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		}
 		//我的页面获取到typeId
 		@action async lists(params){
-			let deta=await list(params.typeId)
+			let deta=await list(params)
+			this.listList=deta.data
+		}
+		//购物车
+		@action async lists(params){
+			let deta=await list(params)
 			this.listList=deta.data
 		}
 }

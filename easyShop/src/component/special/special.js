@@ -9,6 +9,7 @@ import {NavLink} from "react-router-dom"
 // import "../sass/footer/footer.scss"
 class Special extends Component {
     componentDidMount() {
+        // swiper
         var mySwiper = new Swiper('.swiper-container', {
             loop: true,//这里是自动轮播
             autoplay: {
@@ -22,13 +23,12 @@ class Special extends Component {
 
     }
     render() {
-        // console.log(this.props.home)
         return (
             <div className="special-top">
                     <div className="specialTops">
                         {
                             this.props.home && this.props.home.topicListdata.map(item => (
-                                //  console.log(item)
+                                // 跳转详情
                                 <NavLink to={`/topicDetail/${item.id}`} className="special-content" key={item.id}>
                                     <img src={item.item_pic_url} alt="" />
                                     <div className="wz">

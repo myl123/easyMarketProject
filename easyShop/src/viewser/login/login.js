@@ -66,12 +66,20 @@ changePass(e){
 submit=()=>{
   let { phone, pwd } = this.state;
 
+  let net=JSON.parse(localStorage.getItem('phone'))||[];
+  net.push(phone)
+  localStorage.setItem('phone',JSON.stringify(net))
+
   console.log(phone,pwd)
   this.props.login.getLogin(phone,pwd)
   console.log(this.props.login)
+  // this.props.login.getLogin({phone,pwd}).then(res=>{
+  //   console.log(res)
+  // })
   if(this.props.login.loginUser==0){
+    console.log(this.props)
     this.props.history.push('/home')
-  }else if(this.props.login.loginUser==10){
+  }else if(this.props.login.loginUser==1){
     alert("有误")
   }
   this.setState({

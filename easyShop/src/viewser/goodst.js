@@ -40,7 +40,7 @@ class Goodst extends Component {
   };
 	state={
 		cont:0,
-		bool:false,
+		bool:true,
 		ction:false
 	}
     render() {
@@ -241,8 +241,14 @@ class Goodst extends Component {
 		//本地储存
 		 let typeId=JSON.parse(localStorage.getItem('typeId'))||[];
 		 typeId.push(ction)
-		 localStorage.setItem('typeId',JSON.stringify(typeId))
-		this.props.fication.addordeletes({typeId:id,valueId:ction})
+		 // localStorage.setItem('typeId',JSON.stringify(typeId))
+		 if(ction===true||ction===false){
+			  return
+		 }else{
+			  this.props.fication.addordeletes({typeId:ction,valueId:id})
+        this.props.fication.lists({typeId:ction})
+
+		 }
 	}
 }
 export default (withRouter(Goodst))
