@@ -13,7 +13,7 @@ class Shop extends Component {
 		edit:false//编辑
 	}
     render() {
-			// const number=this.props.location.pathname.substr(6)//数量
+			const number=this.props.location.number.number||''//数量
 			let {check,edit}=this.state
 			console.log(this.props,'99')
         return (
@@ -21,11 +21,10 @@ class Shop extends Component {
             	<div className="header">
 					        <Returns/>
 									{
-										console.log(this.props.fication)
-									}
-									{
 										this.props.fication.shoppingList.cartList&&this.props.fication.shoppingList.cartList.map((item,index)=>{
-											 return <div className="shopSection" key={item.id}>
+											 return <div className="shopSection" key={item.id} style={{
+												  display:edit===true?'none':'block'
+											 }}>
 					           <div className="shopse">
 										
 						             <div className="isCheckItem" onClick={()=>{
@@ -49,6 +48,43 @@ class Shop extends Component {
 					       </div>
 										})
 									}
+									 {
+										 this.props.fication.shoppingList.cartList&&this.props.fication.shoppingList.cartList.map((ite,ind)=>{
+											   return <div className="shopse_copy" style={{
+												  display:edit===true?'block':'none'
+											 }}>
+											   			<div className="isCheckItem" onClick={()=>{
+																	this.setState({
+																		check:!check
+																	})
+												      }}>
+											   					{
+																		 this.Image(check)
+																	}
+											   				</div>
+											   				<div className="shopes_img">
+											   						<div className="goodsImg">
+											   									<img src={ite.list_pic_url}/>
+											   						</div>
+											   						<div className="cartGoodsMsg">
+											   								<p>以选择</p>
+											   								<em>￥{ite.market_price}</em>
+											   						</div>
+											   						<div className="input">
+											   								<em onClick={()=>{
+											   									this.add('add',number+1)
+											   								}}>+</em>
+											   								<input type="text" value={number} ref="input"/>
+											   								<em onClick={()=>{
+											   									this.add('rem',(number-1))
+											   								}}>-</em>
+											   							</div>
+											   				</div>
+											   		</div>
+											   
+										 })
+									 }
+										
 									
 								 <div className="cartGoodsDo">
 										 <div className="isCheckItem">
@@ -58,9 +94,13 @@ class Shop extends Component {
 												已选(0) $49
 										 </div>
 										 <span className="cartAllDoButton" onClick={()=>{
-											  console.log('edit')
-										 }}>编辑</span>
-										 <span className="cartAllDoButton_play">下单</span>
+											    this.setState({
+														edit:!edit
+													})
+										 }}>{edit===false?'编辑':'完成'}</span>
+										 <span className="cartAllDoButton_play" onClick={()=>{
+											  console.log('99')
+										 }}>{edit===false?'下单':'删除所有'}</span>
 									 </div>
 							</div>
             	<Footer/>
@@ -81,5 +121,20 @@ class Shop extends Component {
 				  return <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAAQlBMVEUAAACrKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyvw19exOzv////z4uK1Q0Pt0dGxOjp+CNkCAAAADnRSTlMARVn7B9cVoc/jIWtnJIM++AMAAADUSURBVDjLndRLEoMgEEVRPyCg+FAh+99qYqmAabFL7/hMaKCrN/VWyRZopbJ9ETUaWbq5RLXBX6YmSChcpMRZdRKX6e6kDAqZzAmNYlpEpnCTimfEbfWmhLlnZp8qmLY5a47pVY0oNIWArfV+h5Jy88FsNg2q3JTNRLIK8sd4hTZnwfmzSuVsmRdPFGV+d1S18QjJUQUZB5IcVVBxvMlRBRsvKzmq0JOr9y58yNU/eEj8s3zyyPkvcyQk9wH57/xwOfCrhl9cNMGswdQ4HEt1GKsXfQHGSThPkNi75AAAAABJRU5ErkJggg=="/>
        }
 		}
+	  add(type,num){//加
+	  	if(type==='add'){
+	  		this.setState({
+	  			number:num
+	  		})
+	  	}else if(type==='rem'){//减
+	  		if(num<=0){
+	  			return
+	  		}
+	  			this.setState({
+	  				number:num
+	  			})
+	  	
+	  	}
+	  }
 }
 export default (withRouter(Shop))
