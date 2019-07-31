@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 import Footer from '../component/footer';
 import { inject, observer } from 'mobx-react';
+import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 import "../sass/my.scss"
 import '../font/demo.css';
 import '../font/iconfont.css';
@@ -30,7 +31,12 @@ class My extends Component {
 					
 					<div className="myBottom">
 						<ul onClick={()=>{
+<<<<<<< HEAD
 							   this.ction(JSON.parse(localStorage.getItem('typeId')),history)
+=======
+							   history.push(`/collect/`)
+							   
+>>>>>>> houfaxing
 						}}>
 						   <li className="icon iconfont icon-shoucang"></li>
 						   <li>我的收藏</li>
@@ -89,6 +95,7 @@ class My extends Component {
 		phone(phon){
 			 return <div>{phon[0]}</div>
 		}
+<<<<<<< HEAD
 		ction(typeId,history){
 			 typeId.map((item,index)=>{
           if(item===0){
@@ -101,3 +108,9 @@ class My extends Component {
 	
 }
 export default (withRouter(My))
+=======
+
+	
+}
+export default (withRouter(My)) 
+>>>>>>> houfaxing

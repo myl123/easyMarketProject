@@ -76,3 +76,14 @@ export function list(params){
       method:"GET",
   })
 }
+//加减点击购物车
+export function shop(){
+		return request.post('/api/cart/goodscount')
+}
+// 点击购物车跳转购物车
+export function shopping(){
+  return request({
+      url:'/api/cart/index',
+      method:"GET",
+  })
+}

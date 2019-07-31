@@ -9,6 +9,7 @@ import {NavLink} from "react-router-dom"
 // import "../sass/footer/footer.scss"
 class Special extends Component {
     componentDidMount() {
+        // swiper
         var mySwiper = new Swiper('.swiper-container', {
             loop: true,//这里是自动轮播
             autoplay: {

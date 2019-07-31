@@ -10,10 +10,11 @@ class GoodsSearch extends Component {
 	state={
 		data:[],
 		localData:[],
-		valCont:null//input值
+		valCont:null,//input值,
+		list:false
 	}
     render() {
-			let {data,localData,valCont}=this.state;
+			let {data,localData,valCont,list}=this.state;
         return (
             <div className="noTabPageContent">
             	<ul className="searchInputWrap">
@@ -28,7 +29,9 @@ class GoodsSearch extends Component {
 								 this.props.fication.keywordVal(e.target.value)//模糊搜索//暂时还没做
                   console.log(this.props)
 								  this.value(e.target.value,data)
-							 }} ref="input" onKeyup="this.value=this.value.replace(/^\s+|\s+$/g,'')"/>
+							 }} ref="input" onChange={()=>{
+								   console.log('99')
+							 }}/>
 					</li>
 					<li onClick={()=>{
 						{/*清楚input值*/}
@@ -41,12 +44,17 @@ class GoodsSearch extends Component {
 				       <ul className="title">
 					      <li>历史纪录</li>
 						   <li onClick={()=>{
+								 this.setState({
+									 list:!list
+								 })
 								  localStorage.removeItem('set')
+
 							 }}><Icon type="delete"/></li>
 					   </ul>
 					   <ol className="listWrap">
+						 
 						 {
-							 this.tail(JSON.parse(localStorage.getItem('set')))
+							 this.tail(JSON.parse(localStorage.getItem('set')),list)
 
 						 }
 					   </ol>
@@ -73,7 +81,10 @@ class GoodsSearch extends Component {
 			 localStorage.setItem('set',JSON.stringify(net))
 		}
 		//历史纪录 如果清楚本地储存那么为空表情否则为渲染的数据
-		tail(getItems){
+		tail(getItems,list){
+			if(list===false){
+				 console.log(getItems)
+			}
 			 if(getItems==null){
 				  return <p></p>
 			 }else{
@@ -81,6 +92,7 @@ class GoodsSearch extends Component {
 						return <li>{item}</li>
 					})
 			 }
+			
 		}
 		componentDidMount(){
 			this.props.fication.sear()//热门搜索

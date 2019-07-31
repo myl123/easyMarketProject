@@ -43,6 +43,20 @@
     width:100%;
     height:7rem;
     overflow: hidden;
+    .liuyana{
+        width:100%;
+        height:1rem;
+        line-height: 1rem;
+        border-bottom: .01rem solid #ccc;
+        display:flex;
+        h4{
+            flex:8;
+        }
+        Icon{
+            flex:2;
+            margin-right: .5rem;
+        }
+    }
     em{
         height:2rem;
         display: block;

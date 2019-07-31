@@ -58,7 +58,7 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 				 			return item.goodsList.map((ite,ind)=>{
 								 return <li  onClick={()=>{
 
-						  }}>
+						  }} key={ite.id}>
 								 		<span><img src={ite.list_pic_url}/></span>
 								 		<span>{item.name}</span>
 								 </li>

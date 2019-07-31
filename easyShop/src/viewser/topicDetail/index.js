@@ -29,7 +29,15 @@ return (
               <div className="topicImg"
                 dangerouslySetInnerHTML={{ __html: item.content }} />
                 <div className="liuyan">
-                  <p>精选留言<Icon type="edit" /></p>
+                  <div className="liuyana">
+                    <h4>精选留言</h4>
+                    <Link 
+                    to={`/topicCommentWrite/${item.id}`}
+                    >
+                    <Icon type="edit" />
+                    </Link>
+                   
+                    </div>
                   <Liuyan />
                   
                 <em></em>
