@@ -13,16 +13,21 @@ class Shop extends Component {
 		edit:false//编辑
 	}
     render() {
-			const number=this.props.location.pathname.substr(6)//数量
+			// const number=this.props.location.pathname.substr(6)//数量
 			let {check,edit}=this.state
+			console.log(this.props,'99')
         return (
             <div className="wrap">
             	<div className="header">
 					        <Returns/>
 									{
+										console.log(this.props.fication)
+									}
+									{
 										this.props.fication.shoppingList.cartList&&this.props.fication.shoppingList.cartList.map((item,index)=>{
 											 return <div className="shopSection" key={item.id}>
 					           <div className="shopse">
+										
 						             <div className="isCheckItem" onClick={()=>{
 													  this.setState({
 															check:!check
@@ -39,7 +44,7 @@ class Shop extends Component {
 															<p>{item.goods_name}</p>
 															<em>￥{item.market_price}</em>
 												 </div>
-							           <i>×{number}</i>
+							           <i>×1</i>
 					           </div>
 					       </div>
 										})
@@ -63,7 +68,11 @@ class Shop extends Component {
         )
     }
 		componentDidMount(){
-			 this.props.fication.shoppings()
+			const number=this.props.location.number.number||''//数量
+			const productId=this.props.location.productId.productId||''//价格
+			const goodsId=this.props.location.state.goodsId||''//id
+			this.props.fication.adds({goodsId:goodsId+'',productId:productId,number:number})
+
 		}
 		Image(check){
 			 if(check===false){

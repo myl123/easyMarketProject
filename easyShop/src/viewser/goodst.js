@@ -23,7 +23,8 @@ class Goodst extends Component {
 
   onClose = () => {
     this.props.fication.goodscounts()
-		this.props.fication.shops()
+	this.props.fication.shops()
+	this.props.fication.shoppings()
   };
 
   showChildrenDrawer = () => {
@@ -40,15 +41,17 @@ class Goodst extends Component {
 	state={
 		cont:0,
 		bool:true,
-		ction:false
+		ction:false,
+		number:null
 	}
     render() {
-	  let {issue}=this.props.fication.detailsList
+	    let {issue}=this.props.fication.detailsList;
 		let {name}=this.props.location.state;
 		let {id}=this.props.location.id||[];
-		let {cont,bool,ction}=this.state;
+		let {retail}=this.props.location.retail
+		let {cont,bool,ction,number}=this.state;
 		let {goods_brief,retail_price}=this.props.fication.detailsList.length!=0&&this.props.fication.detailsList.info
-		
+
 		return (
      <div className="wrap">
        	<Nav title={name}/>
@@ -184,7 +187,16 @@ class Goodst extends Component {
 					 </li>
 					 <li onClick={()=>{
 						 {/*点击购物车跳转页面*/}
-						   this.props.history.push(`/shop/${this.state.cont}`)
+						 this.setState({
+							  number:this.state.cont
+						 })
+
+						 let cont=this.state.cont;
+						 this.props.fication.detailsList.productList&&this.props.fication.detailsList.productList.map((item)=>{
+						 	this.props.history.push({ pathname:'/shop',state:{goodsId : id },number:{number:cont},productId:{productId:item.id}})
+
+						 })
+						
 					 }}><Icon type="shopping-cart" /><em>{this.state.cont}</em></li>
 					 <li>
 					    <button>加入购物车</button>
@@ -196,13 +208,14 @@ class Goodst extends Component {
     }
 	componentDidMount(){
 		let {id}=this.props.location.id||[];
+		let {retail}=this.props.location.retail||[];
 		this.props.fication.detas(id)//标题e
 		this.props.fication.relate(id)//大家看底下内容
 		var mySwiper = new Swiper('.swiper-container', {
 				loop: true,//这里是自动轮播
 				autoplay: {
-						delay: 1000,
-						disableOnInteraction: false
+					delay: 1000,
+					disableOnInteraction: false
 				},
 				pagination: {
 						el: '.swiper-pagination',//这里是分页器设置

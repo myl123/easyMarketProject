@@ -86,3 +86,8 @@ export function shopping(){
       method:"GET",
   })
 }
+// 点击购物车跳转购物车
+export function add(params){
+		// return request.post(`/api/cart/add/?goodsId=${params.goodsId}&productId=${params.productId}&number=${params.number}`)
+		return request.post('/cart/add',params)
+}
