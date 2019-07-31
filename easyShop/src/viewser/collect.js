@@ -14,15 +14,15 @@ class Collect extends Component {
 				{
 					 this.props.fication.listList.map((item,index)=>{
 						   return  <ul key={item.id}>
-													<li>
-													 <img src={item.list_pic_url}/>
-												</li>
-												<li>
-													 <span>{item.name}</span>
-													 <span>{item.goods_brief}</span>
-													 <span>￥{item.retail_price}</span>
-												</li>
-										 </ul>
+									<li>
+									 <img src={item.list_pic_url}/>
+								</li>
+								<li>
+									 <span>{item.name}</span>
+									 <span>{item.goods_brief}</span>
+									 <span>￥{item.retail_price}</span>
+								</li>
+						 </ul>
 					 })
 
 				}

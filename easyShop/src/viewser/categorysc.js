@@ -77,14 +77,14 @@ class Categorysc extends Component {
 	 introduce(itemId,item,id,brotherCategory,arr){
 		 if(itemId===item.id){
 			  return <>
-				  <p key={item.id}>{item.name}</p>
-				  <p key={item.id}>{item.front_name}</p>
+				  <p>{item.name}</p>
+				  <p>{item.front_name}</p>
 				</>
 		 }else if(itemId===null){
        if(id==item.id){
 					return <>
-					   <p key={item.id}>{item.name}</p>
-						 <p key={item.id}>{item.front_name}</p>
+					   <p>{item.name}</p>
+						 <p>{item.front_name}</p>
 					</>
         }
 		  }
