@@ -93,8 +93,9 @@ class My extends Component {
 			 return <div>{phon[0]}</div>
 		}
 		ction(typeId){
+			console.log(typeId)
 			 typeId.map((item,index)=>{
-					if(item===0){
+					if(item===1){
 						 this.props.fication.lists({typeId:item})
 					}else{
 						return

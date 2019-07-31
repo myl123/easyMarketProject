@@ -66,7 +66,6 @@ export function goodscount(){
 }
 //收藏
 export function addordelete(params){
-	console.log(params,'收藏')
 		return request.post('/api/collect/addordelete',params)
 }
 //我的页面获取到typeId

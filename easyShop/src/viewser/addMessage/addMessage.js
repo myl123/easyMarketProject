@@ -10,12 +10,14 @@ import BackIcon from "../../component/back"
 @observer
 class addMessage extends Component {
     state={
-        values:0
+        content:"",
+        typeId:"",
+        valueId:0
     }
+  
   render() {
-    // console.log()
- 
-    let data = this.props.history.location.pathname.substr(13)
+    console.log(this.props.home)
+    console.log(this.state)
     return (
       <div className="message">
        <div className="messagebrand">
@@ -33,26 +35,38 @@ class addMessage extends Component {
                   onChange={(e)=>this.inputChange(e)}
                   >
                   </textarea>
-                  <span>{this.state.values}/80</span> 
-                  <button>留言</button>
+                  <span>{this.state.content.length}/80</span> 
+                  <button onClick={
+                    ()=>this.clickTj()
+                  }>留言</button>
                 </div>
               </div>
       </div>
     )
   }
-//   管控留言板的次数
-
-  inputChange(e){
-	let values=e.target.value.length;
-    // console.log(values)
-    this.setState({
-        values:values
-    })
-
-}
-  componentDidMount() {
-    this.props.home.gethomeData()
-
+  clickTj=()=>{
+    let {
+      content,typeId,valueId
+    }=this.state;
+    
+    console.log(content,typeId,valueId)
+    this.props.home.addMessageData(content,typeId,valueId)
+    alert("评论成功")
+    this.props.history.go("-1")
   }
+//   管控留言板的次数
+  inputChange(e){
+  let content=e.target.value;
+  let data = this.props.history.location.pathname.substr(19);
+    console.log(content)
+    this.setState({
+      content:content
+    })
+   
+    this.setState({
+      typeId:data
+    })
+   
+}
 }
 export default (withRouter(addMessage))

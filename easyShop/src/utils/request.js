@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getToken } from "../utils/index"
 import {message} from 'antd';
-console.log(getToken)
+console.log(getToken())
 // create an axios instance
 const service = axios.create({
   baseURL: 'http://169.254.12.70:8888',
@@ -15,7 +15,7 @@ service.interceptors.request.use(
     // 判断是否有登陆态
     if (getToken()) {
       // 让每个请求携带authorization
-      config.headers['sessionKey'] = getToken()
+      config.headers['x-nideshop-token'] = getToken()
     }
     return config
   },

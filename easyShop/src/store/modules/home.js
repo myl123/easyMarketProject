@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {homeData,detailData,topicData,messageData} from "../../services/homes"
+import {homeData,detailData,topicData,messageData,topicSpecialData,addMessageData} from "../../services/homes"
 
 export default class Home{
     // @action 修饰方法
@@ -21,9 +21,12 @@ export default class Home{
     @observable messagedata=[]
 
     @observable estimatedata=[]
+
+    @observable topicSpecialdata=[]
+
     @action gethomeData(){
         homeData().then((res)=>{
-        // console.log(res.data)
+         console.log(res.data)
         this.bannerdata=res.data.banner
         this.channeldata=res.data.channel
         this.brandListdata=res.data.brandList
@@ -53,11 +56,22 @@ export default class Home{
 
     @action messageData(params){
         messageData(params).then((res)=>{
-            console.log(res.data)
+            // console.log(res.data)
             this.estimatedata=res.data.data
         })
     }
 
+    @action topicSpecialData(params){
+        topicSpecialData(params).then((res)=>{
+            console.log(res.data)
+            this.topicSpecialdata.push(res.data)
+        })
+    }
+
+    @action async addMessageData(content,typeId,valueId){
+        let data=await addMessageData({content:content,typeId:typeId,valueId:valueId})
+        console.log(data)
+    }
 
 
     

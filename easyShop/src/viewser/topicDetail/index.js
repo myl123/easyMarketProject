@@ -17,7 +17,7 @@ render() {
 return (
   <div className="topicDetail">
     {
-      this.props.home && this.props.home.topicListdata.map(item => {
+      this.props.home && this.props.home.topicSpecialdata.map(item => {
         console.log(item)
         if (item.id == data) {
           return <div key={item.id} className="topic">
@@ -51,7 +51,7 @@ return (
                   <b>推荐专题</b>
                   <div className="specialTopas">
                         {
-                            this.props.home && this.props.home.topicListdata.map(item => (
+                            this.props.home && this.props.home.topicSpecialdata.map(item => (
                                 //  console.log(item)
                                 <div className="contents" key={item.id}>
  <NavLink to={`/topicDetail/${item.id}`} key={item.id}>
@@ -83,6 +83,7 @@ return (
 componentDidMount() {
   const id = this.props.history.location.pathname.substr(13)
   this.props.home.gethomeData()
+  this.props.home.topicSpecialData(id)
   this.props.home.messageData(id)
   
 

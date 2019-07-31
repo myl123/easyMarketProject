@@ -25,7 +25,7 @@ return (
     </div>
     <div className="loginMain">
       <div className="inputWrap onePx_bottom">
-        <input type="text"   placeholder="请输入手机号码" 
+        <input type="text"   placeholder="请输入手机号码"
         defaultValue="15323807318"
         onChange={(e)=>{
                this.setState({
@@ -38,7 +38,7 @@ return (
       </div>
       <div className="inputWrap onePx_bottom">
         <input type="password"  placeholder="请输入登录密码"
-      
+        defaultValue="123456"
         onChange={(e,pwd)=>{
                this.setState({
                 value: e.target.value,

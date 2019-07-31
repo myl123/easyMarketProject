@@ -31,3 +31,16 @@ export function messageData(params){
       method:"post"
   })
 }
+
+// 根据专题Id获取专题详情
+export function topicSpecialData(params){
+  return request({
+      url:`/topic/detail?id=${params}`,
+      method:"get"
+  })
+}
+
+//对某个商品或专题ID进行评论
+export function addMessageData(params){
+  return request.post('/comment/post',params)
+}
