@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./login.scss"
 import {Button} from "antd"
 import { inject, observer } from 'mobx-react';
+import {setToken} from '../../utils/index'
 import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 @inject('login')
 @observer
@@ -24,7 +25,9 @@ return (
     </div>
     <div className="loginMain">
       <div className="inputWrap onePx_bottom">
-        <input type="text"   placeholder="请输入手机号码" onChange={(e)=>{
+        <input type="text"   placeholder="请输入手机号码" 
+        defaultValue="15323807318"
+        onChange={(e)=>{
                this.setState({
                 value: e.target.value,
                 defaultValue: e.target.defaultValue
@@ -34,7 +37,9 @@ return (
         }}/>
       </div>
       <div className="inputWrap onePx_bottom">
-        <input type="password"  placeholder="请输入登录密码"onChange={(e,pwd)=>{
+        <input type="password"  placeholder="请输入登录密码"
+      
+        onChange={(e,pwd)=>{
                this.setState({
                 value: e.target.value,
                 defaultValue: e.target.defaultValue
@@ -66,12 +71,20 @@ changePass(e){
 submit=()=>{
   let { phone, pwd } = this.state;
 
+  let net=JSON.parse(localStorage.getItem('phone'))||[];
+  net.push(phone)
+  localStorage.setItem('phone',JSON.stringify(net))
+
   console.log(phone,pwd)
   this.props.login.getLogin(phone,pwd)
   console.log(this.props.login)
+  // this.props.login.getLogin({phone,pwd}).then(res=>{
+  //   console.log(res)
+  // })
   if(this.props.login.loginUser==0){
+    console.log(this.props)
     this.props.history.push('/home')
-  }else if(this.props.login.loginUser==10){
+  }else if(this.props.login.loginUser==1){
     alert("有误")
   }
   this.setState({

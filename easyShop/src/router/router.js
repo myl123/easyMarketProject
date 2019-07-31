@@ -60,18 +60,15 @@ const Categorysc=Loadable({
   loading: Loading,
   loader: () => import("../viewser/categorysc")
 });
-<<<<<<< HEAD
 const Collect=Loadable({
   loading: Loading,
   loader: () => import("../viewser/collect")
 });
 
-=======
 const TopicCommentWrite=Loadable({
   loading: Loading,
   loader: () => import("../viewser/addMessage/addMessage")
 });
->>>>>>> mengyali
 export default [
   {
     path: "/login",

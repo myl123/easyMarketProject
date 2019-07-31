@@ -36,7 +36,7 @@ class My extends Component {
 							   this.ction(JSON.parse(localStorage.getItem('typeId')))
 						}}>
 						   <li className="icon iconfont icon-shoucang"></li>
-						   <li onCli>我的收藏</li>
+						   <li>我的收藏</li>
 						</ul>
 						<ul>
 							<li className="icon iconfont icon-dizhiguanli"></li>
