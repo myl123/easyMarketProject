@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Footer from '../component/footer';
 import { inject, observer } from 'mobx-react';
+import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from "react-router-dom";
 import "../sass/my.scss"
 import '../font/demo.css';
 import '../font/iconfont.css';
@@ -10,7 +11,7 @@ import {getToken} from '../utils/index'
 @observer
 class My extends Component {
     render() {
-		      
+		      let {history}=this.props;
         return (
             <div className="wrap">
             	<div className="header">
@@ -33,7 +34,8 @@ class My extends Component {
 					
 					<div className="myBottom">
 						<ul onClick={()=>{
-							   this.ction(JSON.parse(localStorage.getItem('typeId')))
+							   history.push(`/collect/`)
+							   
 						}}>
 						   <li className="icon iconfont icon-shoucang"></li>
 						   <li>我的收藏</li>
@@ -104,4 +106,4 @@ class My extends Component {
 		}
 	
 }
-export default  My
+export default (withRouter(My)) 
