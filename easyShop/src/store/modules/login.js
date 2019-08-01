@@ -1,12 +1,8 @@
 import { observable, action } from "mobx";
 import {loginData} from "../../services/logins"
-<<<<<<< HEAD
-import cookie from 'react-cookies';
-=======
 
 import {setToken} from '../../utils/index'
 import cookie from 'react-cookies'
->>>>>>> houfaxing
 export default class Login{
     // @action 修饰方法
     @observable loginUser=""

@@ -21,18 +21,11 @@ class Goodst extends Component {
 		});
 	};
 
-<<<<<<< HEAD
   onClose = () => {
     this.props.fication.goodscounts()
 	this.props.fication.shops()
 	this.props.fication.shoppings()
   };
-=======
-	onClose = () => {
-		this.props.fication.goodscounts()
-		this.props.fication.shops()
-	};
->>>>>>> 95ca43acb59eb4be7de8cf5a8348f744e3cb5fb3
 
 	showChildrenDrawer = () => {
 		this.setState({
@@ -40,7 +33,6 @@ class Goodst extends Component {
 		});
 	};
 
-<<<<<<< HEAD
   onChildrenDrawerClose = () => {
     this.setState({
       childrenDrawer: false,
@@ -59,24 +51,6 @@ class Goodst extends Component {
 		let {retail}=this.props.location.retail!=undefined && this.props.location.retail
 		let {cont,bool,ction,number}=this.state;
 		let {goods_brief,retail_price}=this.props.fication.detailsList.length!=0&&this.props.fication.detailsList.info
-=======
-	onChildrenDrawerClose = () => {
-		this.setState({
-			childrenDrawer: false,
-		});
-	};
-	state = {
-		cont: 0,
-		bool: true,
-		ction: false
-	}
-	render() {
-		let { issue } = this.props.fication.detailsList
-		let { name } = this.props.location.state;
-		let { id } = this.props.location.id || [];
-		let { cont, bool, ction } = this.state;
-		let { goods_brief, retail_price } = this.props.fication.detailsList.length != 0 && this.props.fication.detailsList.info
->>>>>>> 95ca43acb59eb4be7de8cf5a8348f744e3cb5fb3
 
 		return (
 			<div className="wrap">
@@ -213,7 +187,6 @@ class Goodst extends Component {
 					}}>
 						☆
 					 </li>
-<<<<<<< HEAD
 					 <li onClick={()=>{
 						 {/*点击购物车跳转页面*/}
 						 this.setState({
@@ -252,36 +225,6 @@ class Goodst extends Component {
 				},
 				observer:true,
 				observerParents:true
-=======
-					<li onClick={() => {
-						{/*点击购物车跳转页面*/ }
-						this.props.history.push(`/shop/${this.state.cont}`)
-					}}><Icon type="shopping-cart" /><em>{this.state.cont}</em></li>
-					<li>
-						<button>加入购物车</button>
-						<button>立即购买</button>
-					</li>
-				</ol>
-			</div>
-		)
-	}
-	componentDidMount() {
-		let { id } = this.props.location.id || [];
-		this.props.fication.detas(id)//标题e
-		this.props.fication.relate(id)//大家看底下内容
-		var mySwiper = new Swiper('.swiper-container', {
-			loop: true,//这里是自动轮播
-			autoplay: {
-				delay: 1000,
-				disableOnInteraction: false
-			},
-			pagination: {
-				el: '.swiper-pagination',//这里是分页器设置
-				type: "bullets"
-			},
-			observer: true,
-			observerParents: true
->>>>>>> 95ca43acb59eb4be7de8cf5a8348f744e3cb5fb3
 		});
 	}
 	add(type, num) {//加
