@@ -94,7 +94,6 @@ class My extends Component {
 		phone(phon){
 			 return <div>{phon[0]}</div>
 		}
-<<<<<<< HEAD
 		// haha 
 		ction(typeId){
 			console.log(typeId)
@@ -106,9 +105,6 @@ class My extends Component {
 					}
 			 })
 		}
-=======
-
->>>>>>> dev
 	
 }
 export default (withRouter(My)) 

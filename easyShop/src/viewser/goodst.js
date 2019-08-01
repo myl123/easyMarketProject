@@ -87,13 +87,15 @@ class Goodst extends Component {
 										style={{
 											bottom: 0,
 											width: '100%',
-											padding: '10px 0',
+						
 											textAlign: 'right',
 											background: '#fff',
 										}}
 									>
 										<div className="goodsSizeDo">
+										<img src="http://img3.imgtn.bdimg.com/it/u=2870322368,453611869&fm=26&gp=0.jpg" className="imgs" alt=""/>
 											<ol className="goodsSizeSetMsg">
+												
 												<li>
 													<span>单价</span>
 													<span>￥ 69</span>
@@ -147,7 +149,7 @@ class Goodst extends Component {
 						<div className="problem">
 							{
 								issue && issue.map((item, index) => {
-									return <ul>
+									return <ul key={index}>
 										<li>
 											<span>√</span>
 											<span>{item.question}</span>
