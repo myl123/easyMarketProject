@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list,shop,shopping,add} from '../../servies/fication';
+import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list,shop,shopping,add,deletes,upCount} from '../../servies/fication';
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -18,6 +18,8 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 	@observable shopList=[]
 	@observable shoppingList=[]
 	@observable addList=[]
+	@observable deletList=[]
+	@observable deletCount=[]
     @action async getData(){
 			let deta=await fica();
       this.data=deta.data.categoryList
@@ -88,5 +90,19 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 			console.log(deta,'data')
 			// this.addList=deta.dataconsole.log(
 		}
+		//删除选择商品
+		@action async deletest(params){
+			let deta=await deletes(params)
+        if(deta.errno === 0){
+            this.deletList = deta.data.cartList
+        }
+		}
+		//更新商品数量
+    @action async up_Count(params){
+        let deta = await upCount(params)
+        this.deletCount = deta.data.cartList
+
+    }
+		
 }
 export default Fication

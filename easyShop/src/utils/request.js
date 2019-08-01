@@ -4,7 +4,7 @@ import {message} from 'antd';
 console.log(getToken())
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://172.20.10.2:8888',
+  baseURL: 'http://169.254.12.55:8888',
   // withCredentials: true, // 跨域请求时发送 cookies
   timeout: 5000 // request timeout
 })
