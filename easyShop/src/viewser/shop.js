@@ -15,11 +15,14 @@ class Shop extends Component {
 		ItemsId:null,
 		ImgCheck:false,
 		checkeded:null,
-		product:null
+		product:null,
+		num:null,
+		money:null,
+		checkouts:false
 	}
     render() {
 			// const number=this.props.location.number.number||'';//数量
-			let {check,edit,IteId,number,ItemsId,ImgCheck,checkeded,product}=this.state
+			let {check,edit,IteId,number,ItemsId,ImgCheck,checkeded,product,num,money,checkouts}=this.state
         return (
             <div className="wrap">
             	<div className="header">
@@ -43,7 +46,7 @@ class Shop extends Component {
 												 }}>
 													<img src={item.checked===1 ? 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAAQlBMVEUAAACrKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyvw19exOzv////z4uK1Q0Pt0dGxOjp+CNkCAAAADnRSTlMARVn7B9cVoc/jIWtnJIM++AMAAADUSURBVDjLndRLEoMgEEVRPyCg+FAh+99qYqmAabFL7/hMaKCrN/VWyRZopbJ9ETUaWbq5RLXBX6YmSChcpMRZdRKX6e6kDAqZzAmNYlpEpnCTimfEbfWmhLlnZp8qmLY5a47pVY0oNIWArfV+h5Jy88FsNg2q3JTNRLIK8sd4hTZnwfmzSuVsmRdPFGV+d1S18QjJUQUZB5IcVVBxvMlRBRsvKzmq0JOr9y58yNU/eEj8s3zyyPkvcyQk9wH57/xwOfCrhl9cNMGswdQ4HEt1GKsXfQHGSThPkNi75AAAAABJRU5ErkJggg==' 
 														: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABCUExURUdwTMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzAV+Z0EAAAAVdFJOUwAJ+KUEFTPay2bzRXdZ7RkhmJ6qJOWhY+QAAAEDSURBVDjLnZTplsIgDIUNWwK2tdt9/1cdxHGmVcAc+dH25Hw0+71cvjhztDIZM4mNc4txo+BwZKxSVwbSFoMn8iFuCeDrG0RLNkc6GGK+ttCZ8gIzuJcgBgPxJ4rB4T2OkM0HjgRyq8V7Y8i/3/V06YVb/nKECa0qBYPffB1jaFd8AD8+RrBrY8R41FkQew2MkPtrR6IeRglzoW1/HrbizfZ9Pv8jCH0slOAm+D7mMeUn4PoYwegxpVNlCsqCKMurbJay9R8GyT0HSTmWeciTYsh7K+MPK1MW0H9eQOU652sqcch+15rUrFQXLpuFy7ksXLYuXDUZbBZ9v4sqiqju34jyD97JD4dkfgo1AAAAAElFTkSuQmCC'
-													} onClick={this.handIsChended.bind(this,item.product_id,item.checked)}/>
+													} onClick={this.handIsChended.bind(this,item.product_id,item.checked,num,money)}/>
 						             </div>
 												 <div className="goodsImg">
 													  <img src={item.list_pic_url}/>
@@ -66,12 +69,13 @@ class Shop extends Component {
 																		this.setState({
 																			check:!check,
 																			IteId:ite.id,
-																			ItemsId:ite.id
+																			ItemsId:ite.id,
+																		  
 																		})
 																	}}>
 																	<img src={ite.checked===1 ? 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAAQlBMVEUAAACrKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyvw19exOzv////z4uK1Q0Pt0dGxOjp+CNkCAAAADnRSTlMARVn7B9cVoc/jIWtnJIM++AMAAADUSURBVDjLndRLEoMgEEVRPyCg+FAh+99qYqmAabFL7/hMaKCrN/VWyRZopbJ9ETUaWbq5RLXBX6YmSChcpMRZdRKX6e6kDAqZzAmNYlpEpnCTimfEbfWmhLlnZp8qmLY5a47pVY0oNIWArfV+h5Jy88FsNg2q3JTNRLIK8sd4hTZnwfmzSuVsmRdPFGV+d1S18QjJUQUZB5IcVVBxvMlRBRsvKzmq0JOr9y58yNU/eEj8s3zyyPkvcyQk9wH57/xwOfCrhl9cNMGswdQ4HEt1GKsXfQHGSThPkNi75AAAAABJRU5ErkJggg==' 
 																		: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABCUExURUdwTMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzAV+Z0EAAAAVdFJOUwAJ+KUEFTPay2bzRXdZ7RkhmJ6qJOWhY+QAAAEDSURBVDjLnZTplsIgDIUNWwK2tdt9/1cdxHGmVcAc+dH25Hw0+71cvjhztDIZM4mNc4txo+BwZKxSVwbSFoMn8iFuCeDrG0RLNkc6GGK+ttCZ8gIzuJcgBgPxJ4rB4T2OkM0HjgRyq8V7Y8i/3/V06YVb/nKECa0qBYPffB1jaFd8AD8+RrBrY8R41FkQew2MkPtrR6IeRglzoW1/HrbizfZ9Pv8jCH0slOAm+D7mMeUn4PoYwegxpVNlCsqCKMurbJay9R8GyT0HSTmWeciTYsh7K+MPK1MW0H9eQOU652sqcch+15rUrFQXLpuFy7ksXLYuXDUZbBZ9v4sqiqju34jyD97JD4dkfgo1AAAAAElFTkSuQmCC'
-																	} onClick={this.handIsChended.bind(this,ite.product_id,ite.checked)}/>
+																	} onClick={this.handIsChended.bind(this,ite.product_id,ite.checked,num,money)}/>
 															  </div>
 											   				<div className="shopes_img">
 											   						<div className="goodsImg" onClick={()=>{
@@ -84,6 +88,7 @@ class Shop extends Component {
 											   								<p>以选择</p>
 											   								<em>￥{ite.market_price}</em>
 											   						</div>
+																		
 											   						<div className="input">
 											   								<em onClick={()=>{
 											   									this.add('add',ite.goods_id,ite.id,ite.number+1,ite.product_id)
@@ -100,11 +105,18 @@ class Shop extends Component {
 										
 									
 								 <div className="cartGoodsDo">
-										 <div className="isCheckItem">
-												<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAAQlBMVEUAAACrKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyvw19exOzv////z4uK1Q0Pt0dGxOjp+CNkCAAAADnRSTlMARVn7B9cVoc/jIWtnJIM++AMAAADUSURBVDjLndRLEoMgEEVRPyCg+FAh+99qYqmAabFL7/hMaKCrN/VWyRZopbJ9ETUaWbq5RLXBX6YmSChcpMRZdRKX6e6kDAqZzAmNYlpEpnCTimfEbfWmhLlnZp8qmLY5a47pVY0oNIWArfV+h5Jy88FsNg2q3JTNRLIK8sd4hTZnwfmzSuVsmRdPFGV+d1S18QjJUQUZB5IcVVBxvMlRBRsvKzmq0JOr9y58yNU/eEj8s3zyyPkvcyQk9wH57/xwOfCrhl9cNMGswdQ4HEt1GKsXfQHGSThPkNi75AAAAABJRU5ErkJggg=="/>
+										 <div className="isCheckItem" onClick={()=>{
+											 this.setState({
+												 checkouts:!checkouts
+											 })
+											    this.chekouts(checkouts)
+										 }}>
+												<img src={checkouts===false?"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABCUExURUdwTMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzAV+Z0EAAAAVdFJOUwAJ+KUEFTPay2bzRXdZ7RkhmJ6qJOWhY+QAAAEDSURBVDjLnZTplsIgDIUNWwK2tdt9/1cdxHGmVcAc+dH25Hw0+71cvjhztDIZM4mNc4txo+BwZKxSVwbSFoMn8iFuCeDrG0RLNkc6GGK+ttCZ8gIzuJcgBgPxJ4rB4T2OkM0HjgRyq8V7Y8i/3/V06YVb/nKECa0qBYPffB1jaFd8AD8+RrBrY8R41FkQew2MkPtrR6IeRglzoW1/HrbizfZ9Pv8jCH0slOAm+D7mMeUn4PoYwegxpVNlCsqCKMurbJay9R8GyT0HSTmWeciTYsh7K+MPK1MW0H9eQOU652sqcch+15rUrFQXLpuFy7ksXLYuXDUZbBZ9v4sqiqju34jyD97JD4dkfgo1AAAAAElFTkSuQmCC":
+												"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAAQlBMVEUAAACrKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyvw19exOzv////z4uK1Q0Pt0dGxOjp+CNkCAAAADnRSTlMARVn7B9cVoc/jIWtnJIM++AMAAADUSURBVDjLndRLEoMgEEVRPyCg+FAh+99qYqmAabFL7/hMaKCrN/VWyRZopbJ9ETUaWbq5RLXBX6YmSChcpMRZdRKX6e6kDAqZzAmNYlpEpnCTimfEbfWmhLlnZp8qmLY5a47pVY0oNIWArfV+h5Jy88FsNg2q3JTNRLIK8sd4hTZnwfmzSuVsmRdPFGV+d1S18QjJUQUZB5IcVVBxvMlRBRsvKzmq0JOr9y58yNU/eEj8s3zyyPkvcyQk9wH57/xwOfCrhl9cNMGswdQ4HEt1GKsXfQHGSThPkNi75AAAAABJRU5ErkJggg=="}/>
 										 </div>
-										 <div className="cartMsgAll">
-												已选({this.props.fication.shoppingList.length}) $49
+										 <div className="cartMsgAll" >
+										 
+												已选({this.props.fication.upCheckedsListNum.checkedGoodsCount}) ￥{this.props.fication.upCheckedsListNum.checkedGoodsAmount} 
 										 </div>
 										 <span className="cartAllDoButton" onClick={()=>{
 											    this.setState({
@@ -125,12 +137,21 @@ class Shop extends Component {
 			this.props.fication.shoppings()
 		}
 	 //单选
-		handIsChended(prodId,checked){
+	 // num,money
+		handIsChended(prodId,checked,num,money){
+	
 			if(checked===1){
 				this.props.fication.upCheckeds({isChecked:0,productIds:prodId})
+				
 			}else{
 				this.props.fication.upCheckeds({isChecked:1,productIds:prodId})
 			}
+			this.setState({
+				  num:this.props.fication.upCheckedsListNum.checkedGoodsCount,
+					money:this.props.fication.upCheckedsListNum.goodsAmount
+
+			})
+			console.log(this.props.fication.upCheckedsListNum.checkedGoodsCount)
 		}
 		//加减
 	  add(type,goodsId,id,number,productId,item){//加
@@ -149,5 +170,18 @@ class Shop extends Component {
 				 this.props.fication.shoppings()
 			}
 		}
+		//全选
+		chekouts(checkout){
+			if(checkout===false){
+				this.props.fication.shoppingList.map((item,index)=>{
+					  this.props.fication.upCheckeds({isChecked:1,productIds:item.product_id+''})
+				})
+			}else{
+				 this.props.fication.shoppingList.map((item,index)=>{
+				 		this.props.fication.upCheckeds({isChecked:0,productIds:item.product_id+''})
+				 })
+			}
+   }
+		
 }
 export default (withRouter(Shop))

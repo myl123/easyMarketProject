@@ -118,15 +118,9 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		  //购物车商品是否选中
     @action async upCheckeds(params){
         let deta = await upChecked(params)
-// 				if(deta.errno == 0){
-// 					 let deta = await shopping()
-// 					 this.upCheckedsList = deta.data.cartList
-// 					 this.upCheckedsListNum = deta.data.cartTotal
-// 					 this.upCheckedsListGetId = deta.data.cartList.map((item) => item.product_id).join(",")
-// 				}
-				this.shoppingList=deta.data.cartList
+        this.shoppingList=deta.data.cartList
+				this.upCheckedsListNum=deta.data.cartTotal
     }
-		// checkedShopping
 		
 }
 export default Fication
