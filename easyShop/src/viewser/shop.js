@@ -114,7 +114,7 @@ class Shop extends Component {
 												<img src={checkouts===false?"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABCUExURUdwTMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzAV+Z0EAAAAVdFJOUwAJ+KUEFTPay2bzRXdZ7RkhmJ6qJOWhY+QAAAEDSURBVDjLnZTplsIgDIUNWwK2tdt9/1cdxHGmVcAc+dH25Hw0+71cvjhztDIZM4mNc4txo+BwZKxSVwbSFoMn8iFuCeDrG0RLNkc6GGK+ttCZ8gIzuJcgBgPxJ4rB4T2OkM0HjgRyq8V7Y8i/3/V06YVb/nKECa0qBYPffB1jaFd8AD8+RrBrY8R41FkQew2MkPtrR6IeRglzoW1/HrbizfZ9Pv8jCH0slOAm+D7mMeUn4PoYwegxpVNlCsqCKMurbJay9R8GyT0HSTmWeciTYsh7K+MPK1MW0H9eQOU652sqcch+15rUrFQXLpuFy7ksXLYuXDUZbBZ9v4sqiqju34jyD97JD4dkfgo1AAAAAElFTkSuQmCC":
 												"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAAQlBMVEUAAACrKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyurKyvw19exOzv////z4uK1Q0Pt0dGxOjp+CNkCAAAADnRSTlMARVn7B9cVoc/jIWtnJIM++AMAAADUSURBVDjLndRLEoMgEEVRPyCg+FAh+99qYqmAabFL7/hMaKCrN/VWyRZopbJ9ETUaWbq5RLXBX6YmSChcpMRZdRKX6e6kDAqZzAmNYlpEpnCTimfEbfWmhLlnZp8qmLY5a47pVY0oNIWArfV+h5Jy88FsNg2q3JTNRLIK8sd4hTZnwfmzSuVsmRdPFGV+d1S18QjJUQUZB5IcVVBxvMlRBRsvKzmq0JOr9y58yNU/eEj8s3zyyPkvcyQk9wH57/xwOfCrhl9cNMGswdQ4HEt1GKsXfQHGSThPkNi75AAAAABJRU5ErkJggg=="}/>
 										 </div>
-										 <div className="cartMsgAll" >
+										 <div className="cartMsgAll">
 										 
 												已选({this.props.fication.upCheckedsListNum.checkedGoodsCount}) ￥{this.props.fication.upCheckedsListNum.checkedGoodsAmount} 
 										 </div>
@@ -151,14 +151,26 @@ class Shop extends Component {
 					money:this.props.fication.upCheckedsListNum.goodsAmount
 
 			})
-			console.log(this.props.fication.upCheckedsListNum.checkedGoodsCount)
+			//只要有一个不选则不选否则全选
+			let checkted=this.props.fication.shoppingList.every(function(item,index){
+				  return item.checked
+			})
+			if(checkted===true){
+				 this.setState({
+					  checkouts:false
+				 })
+			}else{
+				this.setState({
+					checkouts:true
+				})
+			}
 		}
 		//加减
 	  add(type,goodsId,id,number,productId,item){//加
 		if(type==='add'){
        this.props.fication.up_Count({goodsId:goodsId,id:id,number:number,productId:productId})
     }else if(type==='rem'){
-
+       
 		}
 		 this.props.fication.up_Count({goodsId:goodsId,id:id,number:number,productId:productId})  
 	  }
@@ -176,6 +188,7 @@ class Shop extends Component {
 				this.props.fication.shoppingList.map((item,index)=>{
 					  this.props.fication.upCheckeds({isChecked:1,productIds:item.product_id+''})
 				})
+				
 			}else{
 				 this.props.fication.shoppingList.map((item,index)=>{
 				 		this.props.fication.upCheckeds({isChecked:0,productIds:item.product_id+''})
