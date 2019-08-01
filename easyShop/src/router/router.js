@@ -69,6 +69,10 @@ const TopicCommentWrite=Loadable({
   loading: Loading,
   loader: () => import("../viewser/addMessage/addMessage")
 });
+const Address=Loadable({
+  loading: Loading,
+  loader: () => import("../viewser/address/address")
+});
 export default [
   {
     path: "/login",
@@ -80,6 +84,11 @@ export default [
     name: "首页",
     isTab: true,
     icon: "bank"
+  },
+  {
+    // name: "添加地址",
+    path: "/address",
+    component: Address
   },
   {
     // name: "留言",

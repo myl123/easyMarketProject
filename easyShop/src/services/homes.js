@@ -44,3 +44,20 @@ export function topicSpecialData(params){
 export function addMessageData(params){
   return request.post('/comment/post',params)
 }
+
+//获取地址数据
+export function getressData(){
+  return request({
+    url:`/address/list`,
+    method:"get"
+})
+}
+//新增地址
+export function addressData(params){
+  return request.post('/address/save',params)
+}
+
+// 删除地址
+export function deleteressData(params){
+  return request.post('/address/delete',params)
+}

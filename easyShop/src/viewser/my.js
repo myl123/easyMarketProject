@@ -40,7 +40,10 @@ class My extends Component {
 						   <li className="icon iconfont icon-shoucang"></li>
 						   <li>我的收藏</li>
 						</ul>
-						<ul>
+						<ul onClick={()=>{
+							   history.push(`/address/`)
+							   
+						}}>
 							<li className="icon iconfont icon-dizhiguanli"></li>
 							<li>我的地址</li>
 						</ul>
