@@ -15,6 +15,7 @@ class GoodsSearch extends Component {
 	}
     render() {
 			let {data,localData,valCont,list}=this.state;
+			console.log(this.props.fication)
         return (
             <div className="noTabPageContent">
             	<ul className="searchInputWrap">
@@ -24,13 +25,11 @@ class GoodsSearch extends Component {
 						}}>&lt;</li>
 					<li>
 					     <Icon type="search"/>
-							 {/*获取到value值之后储存起来进行渲染*/}
+							 {/*获取到value值之后储存起来进行渲染...*/}
 							 <input type="text" placeholder="520元礼包抢先领" onBlur={(e)=>{
 								 this.props.fication.keywordVal(e.target.value)//模糊搜索//暂时还没做
                   console.log(this.props)
-								  this.value(e.target.value,data)
-							 }} ref="input" onChange={()=>{
-								   console.log('99')
+						
 							 }}/>
 					</li>
 					<li onClick={()=>{
