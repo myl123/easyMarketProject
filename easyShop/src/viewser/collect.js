@@ -7,11 +7,8 @@ import '../sass/collect.scss';
 @observer
 class Collect extends Component {
     render() {
-<<<<<<< HEAD
 			let typeId=this.props.location.pathname.substr(9)
 	    this.props.fication.lists({typeId:typeId})
-=======
->>>>>>> houfaxing
 
        console.log(this.props)
         return (

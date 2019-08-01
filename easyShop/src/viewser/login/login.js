@@ -77,15 +77,9 @@ submit=()=>{
   console.log(phone,pwd)
   this.props.login.getLogin(phone,pwd)
   console.log(this.props.login)
-<<<<<<< HEAD
-	 let net=JSON.parse(localStorage.getItem('phone'))||[];
- net.push(phone)
- localStorage.setItem('phone',JSON.stringify(net))
-=======
   // this.props.login.getLogin({phone,pwd}).then(res=>{
   //   console.log(res)
   // })
->>>>>>> houfaxing
   if(this.props.login.loginUser==0){
     console.log(this.props)
     this.props.history.push('/home');

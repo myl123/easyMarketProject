@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router,Switch,Route,NavLink,Redirect } from "react-router-dom";
+import { BrowserRouter as Router,Switch,Route,NavLink,Redirect ,withRouter} from "react-router-dom";
 import "./index.scss"
 import { Icon } from 'antd';
 import { inject, observer } from 'mobx-react';
@@ -13,13 +13,19 @@ class NewProduct extends Component {
         
     }
     render() {
+        let {history}=this.props;
         // console.log(this.props.home)
         return (
             <div className="newProduct-top">
             {
                 this.props.home && this.props.home.newGoodsListdata.map(item => (
                     // console.log(item)
-                    <NavLink to={`/goods/${item.id}`} key={item.id}>
+                    <div 
+                    onClick={()=>{
+                        history.push({ pathname:'/goodst',state:{name : item.name },id:{id:item.id} })
+                        console.log(item.id,item.name)
+                   }}
+                    key={item.id}>
                     <dl key={item.id}>
                         <dt><img src={item.list_pic_url} alt="" /></dt>
                         <dd>
@@ -27,7 +33,7 @@ class NewProduct extends Component {
                         <p className="productPrice">￥{item.retail_price}</p>
                         </dd>
                     </dl>
-                    </NavLink>
+                    </div>
                 ))
             }
         </div>
@@ -35,4 +41,4 @@ class NewProduct extends Component {
         )
     }
 }
-export default NewProduct
+export default (withRouter(NewProduct))
