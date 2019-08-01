@@ -68,7 +68,7 @@ class Shop extends Component {
 											   			<div className="isCheckItem" onClick={()=>{
 																		this.setState({
 																			check:!check,
-																			IteId:ite.id,
+																			IteId:ite.product_id,
 																			ItemsId:ite.id,
 																		  
 																		})
@@ -125,7 +125,7 @@ class Shop extends Component {
 										 }}>{edit===false?'编辑':'完成'}</span>
 										 <span className="cartAllDoButton_play" onClick={()=>{
 										 }} onClick={()=>{
-											  this.edit(edit,IteId)
+											 this.edit(edit,IteId)
 										 }}>{edit===false?'下单':'删除所有'}</span>
 									 </div>
 							</div>
@@ -175,10 +175,14 @@ class Shop extends Component {
 		 this.props.fication.up_Count({goodsId:goodsId,id:id,number:number,productId:productId})  
 	  }
 		edit(edit,IteId){
+			
 			if(edit===true){
 				//删除商品
-				 let delId=this.props.fication.shoppingList.cartList&&this.props.fication.shoppingList.cartList.map((item) => item.product_id).join(',')
-				 this.props.fication.deletest({productIds:delId+""})
+				 let delId=this.props.fication.shoppingList&&this.props.fication.shoppingList.map((item) => item.product_id).join(',')
+				 if(IteId==delId){
+					 console.log(delId)
+				 }
+				 this.props.fication.deletest({productIds:IteId+""})
 				 this.props.fication.shoppings()
 			}
 		}

@@ -199,7 +199,70 @@ class Goodst extends Component {
 						
 					 }}><Icon type="shopping-cart" /><em>{this.state.cont}</em></li>
 					 <li>
-					    <button>加入购物车</button>
+					    <button onClick={this.showDrawer}>加入购物车</button>
+							<Drawer
+																	width={520}
+																	closable={false}
+																	onClose={this.onClose}
+																	visible={this.state.visible}
+							                  >
+							                
+							
+							          <div
+							            style={{
+							              bottom: 0,
+							              width: '100%',
+							              padding: '10px 0',
+							              textAlign: 'right',
+							              background: '#fff',
+							            }}
+							          >
+												   <div className="goodsSizeDo">
+													    <ol className="goodsSizeSetMsg">
+															   <li>
+																    <span>单价</span>
+																		<span>￥ 69</span>
+																		<em onClick={()=>{
+																			this.setState({
+																				visible: false,
+																			});
+																		}}>×</em>
+																 </li>
+																 <li>
+																		<span>库存</span>
+																		<span>100件</span>
+																 </li>
+																 <li>
+																	 <span>已选择:</span>
+																 </li>
+																 <li>
+																     <span>数量</span>
+																		 <div className="input">
+																		   <em onClick={()=>{
+																				  this.add('add',this.state.cont+1)
+																			 }}>+</em>
+																			 <input type="text" value={this.state.cont} ref="input"/>
+																			 <em onClick={()=>{
+																				  this.add('rem',(this.state.cont-1))
+																			 }}>-</em>
+																		 </div>
+																 </li>
+															</ol>
+													 </div>
+							
+							            <Button
+							              style={{
+							                marginRight: 8,
+							              }}
+							              onClick={this.onClose}
+							            >
+							              加入购物车
+							            </Button>
+							            <Button onClick={this.onClose} type="primary">
+							              立即下单
+							            </Button>
+							          </div>
+							        </Drawer>
 							<button>立即购买</button>
           </li>
 				</ol>
