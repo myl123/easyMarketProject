@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, NavLink, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, NavLink, Redirect ,withRouter } from "react-router-dom";
 import "./index.scss"
 import { Icon } from 'antd';
 import { inject, observer } from 'mobx-react';
@@ -14,12 +14,18 @@ class Popularity extends Component {
     }
     render() {
         // console.log(this.props.home)
+        let {history}=this.props;
         return (
             <div className="popularity-top">
                 {
                     this.props.home && this.props.home.hotGoodsListdata.map(item => (
                         //  console.log(item)
-                        <div className="popularity-content" key={item.id}>
+                        <div className="popularity-content" 
+                        onClick={()=>{
+                            history.push({ pathname:'/goodst',state:{name : item.name },id:{id:item.id} })
+                            console.log(item.id,item.name)
+                       }}
+                        key={item.id}>
                             <div className="popularity-left">
                                 <span>
                                     <img src={item.list_pic_url} alt="" />
@@ -39,4 +45,4 @@ class Popularity extends Component {
         )
     }
 }
-export default Popularity
+export default (withRouter(Popularity))
