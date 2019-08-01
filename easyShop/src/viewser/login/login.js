@@ -24,7 +24,9 @@ return (
     </div>
     <div className="loginMain">
       <div className="inputWrap onePx_bottom">
-        <input type="text"   placeholder="请输入手机号码" onChange={(e)=>{
+        <input type="text"   placeholder="请输入手机号码" 
+        defaultValue="15323807318"
+        onChange={(e)=>{
                this.setState({
                 value: e.target.value,
                 defaultValue: e.target.defaultValue
@@ -34,7 +36,9 @@ return (
         }}/>
       </div>
       <div className="inputWrap onePx_bottom">
-        <input type="password"  placeholder="请输入登录密码"onChange={(e,pwd)=>{
+        <input type="password"  placeholder="请输入登录密码"
+        defaultValue="123456"
+        onChange={(e,pwd)=>{
                this.setState({
                 value: e.target.value,
                 defaultValue: e.target.defaultValue
@@ -84,7 +88,9 @@ submit=()=>{
 >>>>>>> houfaxing
   if(this.props.login.loginUser==0){
     console.log(this.props)
-    this.props.history.push('/home')
+    this.props.history.push('/home');
+    window.location.reload()
+
   }else if(this.props.login.loginUser==1){
     alert("有误")
   }

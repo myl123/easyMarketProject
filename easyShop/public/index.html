@@ -57,5 +57,21 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+window.οnlοad=function(){
+
+setRemSize();
+window.addEventListener("resize",setRemSize,false);
+ function setRemSize(){
+   var _clientWidth = document.documentElement.clientWidth/7.2+'px';
+     document.documentElement.style.fontSize = _clientWidth;
+ };
+
+
+
+}
+
+
+    </script>
   </body>
 </html>

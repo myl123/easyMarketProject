@@ -1,5 +1,9 @@
 import { observable, action } from "mobx";
+<<<<<<< HEAD
 import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list,shop,shopping,add,deletes,upCount,upChecked,updata} from '../../servies/fication';
+=======
+import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list,shop,shopping,add} from '../../servies/fication';
+>>>>>>> 95ca43acb59eb4be7de8cf5a8348f744e3cb5fb3
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -18,11 +22,14 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 	@observable shopList=[]
 	@observable shoppingList=[]
 	@observable addList=[]
+<<<<<<< HEAD
 	@observable deletList=[]
 	@observable deletCount=[]
 	@observable upCheckedsList=[]
 	@observable upCheckedsListNum=[]
 	@observable upCheckedsListGetId=[]
+=======
+>>>>>>> 95ca43acb59eb4be7de8cf5a8348f744e3cb5fb3
     @action async getData(){
 			let deta=await fica();
       this.data=deta.data.categoryList
@@ -102,6 +109,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
             this.deletList = deta.data.cartList
         }
 		}
+<<<<<<< HEAD
 		//更新商品数量
     @action async up_Count(params){
         let deta = await upCount(params)
@@ -122,5 +130,11 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 				this.upCheckedsListNum=deta.data.cartTotal
     }
 		
+=======
+		// @action async adds(){
+		// 	let deta=await add()
+		// 	this.addList=deta.data
+		// }
+>>>>>>> 95ca43acb59eb4be7de8cf5a8348f744e3cb5fb3
 }
 export default Fication

@@ -31,3 +31,33 @@ export function messageData(params){
       method:"post"
   })
 }
+
+// 根据专题Id获取专题详情
+export function topicSpecialData(params){
+  return request({
+      url:`/topic/detail?id=${params}`,
+      method:"get"
+  })
+}
+
+//对某个商品或专题ID进行评论
+export function addMessageData(params){
+  return request.post('/comment/post',params)
+}
+
+//获取地址数据
+export function getressData(){
+  return request({
+    url:`/address/list`,
+    method:"get"
+})
+}
+//新增地址
+export function addressData(params){
+  return request.post('/address/save',params)
+}
+
+// 删除地址
+export function deleteressData(params){
+  return request.post('/address/delete',params)
+}

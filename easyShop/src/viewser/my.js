@@ -41,7 +41,10 @@ class My extends Component {
 						   <li className="icon iconfont icon-shoucang"></li>
 						   <li>我的收藏</li>
 						</ul>
-						<ul>
+						<ul onClick={()=>{
+							   history.push(`/address/`)
+							   
+						}}>
 							<li className="icon iconfont icon-dizhiguanli"></li>
 							<li>我的地址</li>
 						</ul>
@@ -96,20 +99,32 @@ class My extends Component {
 			 return <div>{phon[0]}</div>
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 		ction(typeId,history){
 			 typeId.map((item,index)=>{
           if(item===0){
 						 history.push(`/collect/${item}`)
+=======
+		// haha 
+		ction(typeId){
+			console.log(typeId)
+			 typeId.map((item,index)=>{
+					if(item===1){
+						 this.props.fication.lists({typeId:item})
+>>>>>>> 95ca43acb59eb4be7de8cf5a8348f744e3cb5fb3
 					}else{
 						return
 					}
 			 })
 		}
+<<<<<<< HEAD
 	
 }
 export default (withRouter(My))
 =======
 
+=======
+>>>>>>> 95ca43acb59eb4be7de8cf5a8348f744e3cb5fb3
 	
 }
 export default (withRouter(My)) 

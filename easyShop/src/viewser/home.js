@@ -5,7 +5,7 @@ import { inject, observer } from 'mobx-react';
 import "swiper/dist/css/swiper.min.css"
 import "../sass/home.scss"
 import { Icon } from 'antd';
-import { BrowserRouter as Router, Switch, Route, NavLink, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, NavLink, Link,withRouter } from "react-router-dom";
 import NavTo from "../component/navRoute/navRoute"
 import Manufacturer from "../component/manufacturer/manufacturer"
 import NewProduct from "../component/newProduct/newProduct"
@@ -16,7 +16,8 @@ import Special from "../component/special/special"
 class Home extends Component {
 
 render() {
-// console.log(this.props.home)
+console.log(this.props.home)
+let {history}=this.props;
 return (
 <div className="wrap">
     <div className="header">
@@ -69,22 +70,26 @@ return (
             item.goodsList.map(ite => (
                 // console.log()
                 <div className="cate" key={ite.id}>
-                    <NavLink className="categorysMenu"
+                    <div className="categorysMenu"
                         // key={item.id}
-                        to={`/goods/${ite.id}`}
+                        // to={`/goodst/${ite.id}`}
+                        onClick={()=>{
+                            history.push({ pathname:'/goodst',state:{name : ite.name },id:{id:ite.id} })
+                            console.log(ite.id,ite.name)
+                       }}
                     >
                         <img src={ite.list_pic_url} alt="" />
                         <div className="cateTop">
                             <h4>{ite.name}</h4>
                             <h5>￥{ite.retail_price}</h5>
                         </div>
-                    </NavLink>
+                    </div>
                 </div>
 
             ))
 
         }
-        <Link to={`/categorys/${item.id}`} className="categoryMoreGoods">
+        <Link to={`/categorysc/${item.id}`} className="categoryMoreGoods">
             <div className="categ">
                 更多{item.name}好物<br />
                 <Icon type="right-circle" className="iconstyle" />
@@ -124,4 +129,4 @@ componentDidMount() {
 
 }
 }
-export default Home
+export default (withRouter(Home))
