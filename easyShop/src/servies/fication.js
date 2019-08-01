@@ -44,7 +44,6 @@ export function category(parmas){
 }
 //奇趣分类下的数据
 export function categoryId(parmas){
-	console.log(parmas,'..pa')
   return request({
       url:`/api/goods/list?categoryId=${parmas}&page=1&size=1000`,
       method:"GET",
@@ -83,7 +82,24 @@ export function shop(){
 // 点击购物车跳转购物车
 export function shopping(){
   return request({
-      url:'/api/cart/index',
+      url:'/cart/index',
       method:"GET",
   })
+}
+// 点击购物车跳转购物车
+export function add(params){
+		return request.post('/cart/add',params)
+}
+//删除选择商品
+export function deletes(params){
+		return request.post('/cart/delete',params)
+}
+//更新商品数量
+export function upCount(params) {
+  return request.post('/cart/update',params);
+}
+
+//判断商品是否选中
+export function upChecked(params) {
+  return request.post('/cart/checked',params);
 }

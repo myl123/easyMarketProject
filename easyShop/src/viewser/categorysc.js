@@ -98,7 +98,7 @@ class Categorysc extends Component {
 			  return this.props.fication.categoList.data&&this.props.fication.categoList.data.map((item,index)=>{
 			  	let name=item.name;
 					return <ol key={index} onClick={()=>{
-						 history.push({ pathname:'/goodst',state:{name : name },id:{id:item.id} })
+ history.push({ pathname:'/goodst',state:{name : name },id:{id:item.id},retail:{retail:item.retail_price} })
 					}}>
 			  				<li><img src={item.list_pic_url}/></li>
 			  				<li>{item.name}</li>

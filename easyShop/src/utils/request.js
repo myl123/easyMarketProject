@@ -5,9 +5,13 @@ console.log(getToken())
 // create an axios instance
 const service = axios.create({
 <<<<<<< HEAD
+<<<<<<< HEAD
   baseURL: 'http://172.20.10.3:8888',
 =======
   baseURL: 'http://169.254.12.70:8888',
+>>>>>>> houfaxing
+=======
+  baseURL: 'http://169.254.12.55:8888',
 >>>>>>> houfaxing
   // withCredentials: true, // 跨域请求时发送 cookies
   timeout: 5000 // request timeout
