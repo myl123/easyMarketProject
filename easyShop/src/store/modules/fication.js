@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list,shop,shopping,add,deletes,upCount} from '../../servies/fication';
+import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodscount,addordelete,list,shop,shopping,add,deletes,upCount,upChecked,updata} from '../../servies/fication';
  class Fication{
     // @action 修饰方法
 	@observable data=[]
@@ -20,6 +20,9 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 	@observable addList=[]
 	@observable deletList=[]
 	@observable deletCount=[]
+	@observable upCheckedsList=[]
+	@observable upCheckedsListNum=[]
+	@observable upCheckedsListGetId=[]
     @action async getData(){
 			let deta=await fica();
       this.data=deta.data.categoryList
@@ -58,6 +61,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		//点击分类下的数据跳转页面
 		@action async relate(parmas){
 			let deta=await relatedId(parmas)
+			console.log(deta)
 			this.categoLists=deta.data
 		}
 		//点击加入购物车
@@ -83,7 +87,8 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		// 点击购物车跳转购物车
 		@action async shoppings(){
 			let deta=await shopping()
-			this.shoppingList=deta.data
+			
+			this.shoppingList=deta.data.cartList
 		}
 		@action async adds(params){
 			let deta=await add(params)
@@ -100,9 +105,28 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		//更新商品数量
     @action async up_Count(params){
         let deta = await upCount(params)
-        this.deletCount = deta.data.cartList
-
+				console.log(deta)
+        this.shoppingList = deta.data.cartList
+		}
+		//编辑单选
+    @action async updata(params){
+        let item = this.shoppingList.find((item) => item.product_id === params)
+        item.isShow = !item.isShow
+        this.IsShow = this.shoppingList.every(item => item.isShow)
+        this.edit_All = this.shoppingList.filter((item) => item.isShow)
     }
+		  //购物车商品是否选中
+    @action async upCheckeds(params){
+        let deta = await upChecked(params)
+// 				if(deta.errno == 0){
+// 					 let deta = await shopping()
+// 					 this.upCheckedsList = deta.data.cartList
+// 					 this.upCheckedsListNum = deta.data.cartTotal
+// 					 this.upCheckedsListGetId = deta.data.cartList.map((item) => item.product_id).join(",")
+// 				}
+				this.shoppingList=deta.data.cartList
+    }
+		// checkedShopping
 		
 }
 export default Fication

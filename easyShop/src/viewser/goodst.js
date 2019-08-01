@@ -45,10 +45,10 @@ class Goodst extends Component {
 		number:null
 	}
     render() {
-	    let {issue}=this.props.fication.detailsList;
-		let {name}=this.props.location.state;
-		let {id}=this.props.location.id||[];
-		let {retail}=this.props.location.retail
+	  let {issue}=this.props.fication && this.props.fication.detailsList;
+		let {name}=this.props.location && this.props.location.state;
+		let {id}=this.props.location.id!=undefined&& this.props.location.id;
+		let {retail}=this.props.location.retail!=undefined && this.props.location.retail
 		let {cont,bool,ction,number}=this.state;
 		let {goods_brief,retail_price}=this.props.fication.detailsList.length!=0&&this.props.fication.detailsList.info
 
