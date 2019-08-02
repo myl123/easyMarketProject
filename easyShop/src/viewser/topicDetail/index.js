@@ -21,10 +21,10 @@ return (
         console.log(item)
         if (item.id == data) {
           return <div key={item.id} className="topic">
-            <p>
+            <div className="topicTop">
               <span><BackIcon /></span>
               <b>{item.title}</b>
-            </p>
+            </div>
             <div className="topicgun">
               <div className="topicImg"
                 dangerouslySetInnerHTML={{ __html: item.content }} />

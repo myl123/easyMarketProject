@@ -15,14 +15,14 @@ console.log()
 let data = this.props.history.location.pathname.substr(13)
 return (
   <div className="asd">
-     <p>
+     {/* <div className="LiuyanAll">
         <span><BackIcon /></span>
         <b>更多评价</b>
-      </p>
+      </div> */}
       <div className="allliyan">
     {
 this.props.home&&this.props.home.estimatedata.map(ite=>{
-  return <div key={ite.id}>
+  return <div key={ite.id} className="anonymity">
     <p>匿名用户<span>{ite.add_time}</span></p>
     <b>{ite.content}</b>
   </div>

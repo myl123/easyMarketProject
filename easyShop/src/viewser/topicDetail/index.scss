@@ -7,12 +7,14 @@
     width:100%;
     height:auto;
     background: #fff;
-
+    text-align: center;
     p{
-        height:1rem;
-        line-height: 1rem;
+        width:100%;
+        height:.5rem;
+        line-height: .5rem;
         display: flex;
-        border-bottom:.01rem solid #ccc;
+        text-align: center;
+        // border-bottom:.01rem solid #ccc;
         span{
             margin-left: .2rem;
             flex:2;
@@ -23,6 +25,19 @@
         }
     }
     
+}
+.topicTop{
+    height:1rem;
+    line-height: 1rem;
+    display:flex;
+    span{
+        margin-left: .2rem;
+        flex:1;
+    }
+    b{
+        flex:9;
+        margin-left: .08rem;
+    }
 }
 .topicgun{
     width:100%;
