@@ -134,7 +134,11 @@ class Shop extends Component {
         )
     }
 		componentDidMount(){
-			this.props.fication.shoppings()
+			let number=this.props.location.number!=undefined&&this.props.location.number.number;//数量
+			let productId=this.props.location.productId!=undefined&&this.props.location.productId.productId//商品ID
+			let goodsId=this.props.location.state!=undefined&&this.props.location.state.goodsId//id
+            this.props.fication.shoppings()
+			this.props.fication.adds({goodsId:goodsId,number:number,productId:productId})
 		}
 	 //单选
 	 // num,money

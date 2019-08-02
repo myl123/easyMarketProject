@@ -12,11 +12,12 @@ class Fication extends Component {
 	state={
 		 currentId:null,
 		 target:null,
-		 goods:null//分类下面的内容
+		 goods:null,//分类下面的内容
+		 tabColor:false
 	}
     render() {
 			let {history}=this.props;
-			let {currentId,target,goods}=this.state;
+			let {currentId,target,goods,tabColor}=this.state;
         return (
              <div className="wrap">
 								<div className="header">
@@ -29,7 +30,7 @@ class Fication extends Component {
 									</div>
 									<div className="tabPageContent">
 									{/*渲染左边数据*/}
-											<ul className="tabsWrap" ref="tabsWrap">
+											<ul className="tabsWrap" ref="tabsWrap" >
 											  {
 													this.props.fication&&this.props.fication.data.map(item=>{
 														return <li key={item.id} onClick={()=>{
@@ -37,10 +38,14 @@ class Fication extends Component {
 															target=this.props.fication.data.map((ite)=>{//点击左边右边数据发生改变
 																  return this.tail(ite,item,goods)
 															})
+															 this.tabColors(item,item.id,tabColor)
+															 console.log(tabColor)
+														}} style={{
+															 color:tabColor===item.id?'#2196f3':null,
+															 borderLeft:tabColor===item.id?'.01rem solid #2196f3':null,
 														}}>{item.name}</li>
 													})
 												}
-												<li ref="li"></li>
 											</ul>
 											<div className="categogContet">
 											   <Ficat ficat={this.props.fication.data} currentId={this.props.fication.currId} goods={goods}/>
@@ -60,6 +65,19 @@ class Fication extends Component {
 						 goods:ite.goodsList
 					})
 			 }
+		}
+		//颜色切换
+	  tabColors(item,itemId,tabColor){
+			console.log(item.id,itemId,'99')
+			if(item.id===itemId){
+				 this.setState({
+					  tabColor:itemId
+				 })
+			}else{
+				 this.setState({
+				 	tabColor:itemId
+				 })
+			}
 		}
 }
 export default (withRouter(Fication))

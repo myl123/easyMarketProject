@@ -73,6 +73,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		//点击加入购物车
 		@action async goodscounts(){
 			let deta=await goodscount()
+			console.log(deta)
 			this.goodscountList=deta.data
 		}
 		//收藏(没写)

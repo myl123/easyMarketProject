@@ -23,8 +23,9 @@ class Goodst extends Component {
 
   onClose = () => {
     this.props.fication.goodscounts()
-	this.props.fication.shops()
-	this.props.fication.shoppings()
+	  this.props.fication.shops()
+	  this.props.fication.shoppings()
+		
   };
 
   showChildrenDrawer = () => {
