@@ -18,7 +18,7 @@ class Shop extends Component {
 		product:null,
 		num:null,
 		money:null,
-		checkouts:false
+		checkouts:false,
 	}
     render() {
 			// const number=this.props.location.number.number||'';//数量
@@ -134,7 +134,12 @@ class Shop extends Component {
         )
     }
 		componentDidMount(){
+			let number=this.props.location.number&&this.props.location.number.number;
+			console.log(this.props.location)
+			let goodsId=this.props.location.state&&this.props.location.state.goodsId;
+			let productId=this.props.location.productId&&this.props.location.productId.productId;
 			this.props.fication.shoppings()
+			this.props.fication.adds({number:number,goodsId:goodsId,productId:productId})
 		}
 	 //单选
 	 // num,money

@@ -9,9 +9,10 @@ import BackIcon from "../../component/back"
 import isCheck from '../../static/img/isCheck.png'
 import noCheck from '../../static/img/noCheck.png'
 import dataShuju from "../address/add"
-import { Picker, List, WhiteSpace } from 'antd-mobile';
+import { Picker, List, WhiteSpace,Toast } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import arrayTreeFilter from 'array-tree-filter';
+import 'antd-mobile/dist/antd-mobile.css';
 
 import { district, provinceLite } from 'antd-mobile-demo-data';
 import { tsMethodSignature } from '@babel/types';
@@ -32,8 +33,21 @@ class address extends Component {
     
     submitForm() {
         console.log(this.state);
-        this.props.home.addressData(this.state)
-        this.onClose()
+        // console.log(this.state.mobile)
+       if(this.state.name===""){
+            alert("您没输入姓名")
+        }else if(this.state.mobile!==""&&!/^1([38]\d|5[0-35-9]|7[3678])\d{8}$/.test(this.state.mobile)){
+            alert("您手机号格式不对")
+        }else if(this.state.address===""){
+            alert("您没输入地址")
+        }else{
+            this.props.home.addressData(this.state)
+            this.onClose()
+        }
+        // if(this.state.mobile===""){
+        //     alert("手机号不能为空")
+        // }
+       
         // const parmas = {
         //     name: this._name.current.value,
         //     mobile: this._phone.current.value,
@@ -124,6 +138,7 @@ class address extends Component {
                             className="addphone" 
                             onChange={(e)=>{
                                 console.log(e.target.value)
+                               
                                 this.setState({
                                     mobile:e.target.value
                                 })

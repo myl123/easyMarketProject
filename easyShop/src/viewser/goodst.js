@@ -25,6 +25,7 @@ class Goodst extends Component {
     this.props.fication.goodscounts()
 	this.props.fication.shops()
 	this.props.fication.shoppings()
+	console.log(this.props)
   };
 
 	showChildrenDrawer = () => {
