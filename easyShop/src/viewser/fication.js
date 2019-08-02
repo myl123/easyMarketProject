@@ -37,10 +37,10 @@ class Fication extends Component {
 															target=this.props.fication.data.map((ite)=>{//点击左边右边数据发生改变
 																  return this.tail(ite,item,goods)
 															})
-														}}>{item.name}</li>
+															this.tabColor(this.refs.li,item.id,item)
+														}} ref="li">{item.name}</li>
 													})
 												}
-												<li ref="li"></li>
 											</ul>
 											<div className="categogContet">
 											   <Ficat ficat={this.props.fication.data} currentId={this.props.fication.currId} goods={goods}/>
@@ -60,6 +60,15 @@ class Fication extends Component {
 						 goods:ite.goodsList
 					})
 			 }
+		}
+		tabColor(li,id,item){
+			console.log(li,id,item)
+// 			if(item.id===id){
+// 				 return li.classList.add('active')
+// 			}else{
+// 				return li.classList.remove('active')
+// 			}
+
 		}
 }
 export default (withRouter(Fication))

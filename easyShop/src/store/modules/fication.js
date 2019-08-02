@@ -34,6 +34,9 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		//详情
 		@action async detas(id){
 		   let deta=await details(id)
+			 if(deta===undefined){
+				  return
+			 }
 			 this.detailsList=deta.data
 		}
 		//热搜
@@ -62,8 +65,11 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		//点击分类下的数据跳转页面
 		@action async relate(parmas){
 			let deta=await relatedId(parmas)
-			console.log(deta)
-			this.categoLists=deta.data
+			if(deta===undefined){
+				 return 
+			}else{
+				 this.categoLists=deta.data
+			}
 		}
 		//点击加入购物车
 		@action async goodscounts(){

@@ -89,12 +89,17 @@
 						padding: .5rem 0;
 						background: #fff;
 			 .isCheckItem{
+				    width:.7rem;
 						background: #fff;
 						display: inline-block;
+						position:relative;
 						img{
 							width: .38rem;
 							height: auto;
 							margin-top: -3rem;
+							position:absolute;
+							margin-left: 20%;
+              margin-top: -163%;
 						}
 			 }
 			 .shopes_img{
@@ -174,7 +179,7 @@
 
 	.cartGoodsDo{
 		position: fixed;
-		bottom: 1rem;
+		bottom: 1.2rem;
 		height: 1.1rem;
 		left: 0;
 		width: 100%;
