@@ -48,6 +48,7 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		//模糊搜索
 		@action async keywordVal(parmas){
 			let deta=await keyword(parmas)
+			console.log(deta)
 			this.vague=deta.data
 		}
 		//分类下的内容
