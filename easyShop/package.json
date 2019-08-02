@@ -1,5 +1,5 @@
 {
-  "name": "easyShop",
+  "name": "easyshop",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -152,5 +152,9 @@
         }
       ]
     ]
-  }
+  },
+  "description": "<<<<<<< HEAD\r # easyMarketProject",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
