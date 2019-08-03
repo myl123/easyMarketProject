@@ -5,6 +5,7 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 @inject('fication')
 @observer
  class Ficat extends Component {
+	 
 	 render() {
 		let {ficat,currentId,id,goods}=this.props;
         return (
@@ -21,14 +22,14 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 						 {this.tail(ficat,currentId)}
 						 <ol className="subCategory">
 								{
-									this.goodFication(goods,ficat)
+									this.goodFication(goods,ficat,currentId.subCategoryList)
 								}
+								
 								{
 									currentId.subCategoryList&&currentId.subCategoryList.map((item,index)=>{
 										return <li onClick={()=>{
-
-											   this.props.history.push(`/categorysc/${item.id}`)
-											}}>
+                        this.props.history.push(`/categorysc/${item.id}`)
+											}} key={item.id}>
 												<span><img src={item.wap_banner_url}/></span>
 												<span>{item.name}</span>
 										</li>
@@ -51,22 +52,26 @@ import { BrowserRouter as Router,Switch,Route,NavLink,Redirect,withRouter } from
 				})
 		}
 	 //分类下面的
-	 goodFication(goods,ficat){
+	 goodFication(goods,ficat,currentId){
+		 
 		  if(!goods){
 				 return ficat.map((item,index)=>{
 				 	if(item.id===1005000){
-				 			return item.goodsList.map((ite,ind)=>{
-								 return <li  onClick={()=>{
+				 		currentId&&currentId.map((item,index)=>{
+								return <li onClick={()=>{
 
-						  }} key={ite.id}>
-								 		<span><img src={ite.list_pic_url}/></span>
-								 		<span>{item.name}</span>
-								 </li>
+										 this.props.history.push(`/categorysc/${item.id}`)
+									}}>
+										<span><img src={item.wap_banner_url}/></span>
+										<span>{item.name}</span>
+								</li>
 							})
 				  	}
 				 })
 			}
 	 }
-	 
+	 componentDidMount(){
+		 this.props.fication.current(1005000)
+	 }
 }
 export default (withRouter(Ficat))

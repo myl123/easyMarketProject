@@ -151,7 +151,7 @@ class Goodst extends Component {
 						<div className="problem">
 						    {
 									issue&&issue.map((item,index)=>{
-										 return <ul> 
+										 return <ul key={index}> 
 										   <li>
 													<span>√</span>
 													<span>{item.question}</span>

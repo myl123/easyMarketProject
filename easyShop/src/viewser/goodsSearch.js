@@ -82,9 +82,9 @@ class GoodsSearch extends Component {
 		}
 		//历史纪录 如果清楚本地储存那么为空表情否则为渲染的数据
 		tail(getItems,list){
-			if(list===false){
-				 console.log(getItems)
-			}
+// 			if(list===false){
+// 				 console.log(getItems)
+// 			}
 			 if(getItems==null){
 				  return <p></p>
 			 }else{

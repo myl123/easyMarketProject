@@ -11,24 +11,31 @@ class Categorysc extends Component {
 		bool:false,
 		itemId:null,
 		arr:[],
-		bole:true
+		bole:true,
+		colorId:this.props.location.pathname.substr(12)
 	}
     render() {
 		const id=this.props.location.pathname.substr(12);
-		let {bool,itemId,arr,bole}=this.state;
+		let {bool,itemId,arr,bole,scrollColor,colorId}=this.state;
 		let {history}=this.props;
+		
         return (
             <div className="wrap">
 								<Nav title="奇趣分类"/>
+								
 								<ol className="am-tabs">
+								   
 								   {
 								   	this.props.fication.gory.brotherCategory&&this.props.fication.gory.brotherCategory.map((item,index)=>{
 											 return <li key={item.id} onClick={()=>{
 												 {/*点击的时候颜色的切换*/}
-												   this.addStyle(item.id,item,item.name,bool)
+												   this.addStyle(item.id,id)
 													 this.props.fication.catego(item.id)
-                           this.setState({
+													 this.setState({
 														 itemId:item.id
+													 })
+													 this.setState({
+													 	  colorId:item.id
 													 })
 													 if(this.props.fication.categoList.length===0){
 														 this.setState({
@@ -36,9 +43,10 @@ class Categorysc extends Component {
 														 })
 													 }
 													 {/*颜色切换*/}
+													
 												}} ref="li" style={{
-												   color:item.id===bool||id==item.id?'#108ee9':null,
-													 borderBottom:item.id===bool||id==item.id?'.02rem solid #108ee9':null
+												   color:item.id==colorId?'#108ee9':null,
+													 borderBottom:item.id==colorId?'.02rem solid #108ee9':null
 											 }}>{item.name}</li>
 								   	})
 										
@@ -66,26 +74,30 @@ class Categorysc extends Component {
 	componentDidMount(){
     const id=this.props.location.pathname.substr(12);
 		this.props.fication.goodsCat(id);
+		this.setState({
+				scrollColor:id
+		})
 	}
 	//颜色切换
-	addStyle(id,item,name,bool){
-   this.setState({
-   	 bool:item.id
-   })
+	addStyle(itemId,id){
+		this.setState({
+			  id:itemId
+		})
 	}
+	
 	 //简介介绍
 	 introduce(itemId,item,id,brotherCategory,arr){
 		 if(itemId===item.id){
-			  return <>
+			 return <React.Fragment key={item.id}>
 				  <p>{item.name}</p>
 				  <p>{item.front_name}</p>
-				</>
+				</React.Fragment>
 		 }else if(itemId===null){
        if(id==item.id){
-					return <>
+					return <React.Fragment key={item.id}>
 					   <p>{item.name}</p>
 						 <p>{item.front_name}</p>
-					</>
+					</React.Fragment>
         }
 		  }
 	 }

@@ -26,7 +26,9 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
     @action async getData(){
 			let deta=await fica();
       this.data=deta.data.categoryList
+			this.dataList=deta.data.categoryList
     }
+		
 		@action async current(id){
 			  let deta= await ficaImg(id)
 				this.currId=deta.data.currentCategory;
@@ -58,7 +60,6 @@ import {fica,ficaImg,details,search,keyword,category,categoryId,relatedId,goodsc
 		}
 		@action async catego(parmas){
 			let deta=await categoryId(parmas)
-			console.log(deta,'deta')
 			this.categoList=deta.data
 		}
 		//点击分类下的数据跳转页面

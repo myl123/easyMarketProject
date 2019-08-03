@@ -12,7 +12,7 @@ class Footer extends Component {
 						return item.name&&<li key={index}>
 						   <NavLink to={item.path} key={index}>
 						       <span><Icon type={item.icon} className="iconStyle"/></span>
-							   <span className="foot">{item.name}</span>
+							   <span>{item.name}</span>
 						   </NavLink>
 						</li>
 					})
